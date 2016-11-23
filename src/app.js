@@ -25,9 +25,9 @@ class Main extends Component{
   }
 
   getCell() {
-    return <div style={{backgroundColor:'rgba(255,255,255,0.9)', color:'black', width:'200px', height:'200px', borderRadius:'5px', flex:'0 0 auto', display:'flex', justifyContent:'center', alignItems:'center'}}>
+    return <div style={{padding:'5px'}}><div style={{backgroundColor:'rgba(255,255,255,0.9)', color:'black', width:'200px', height:'200px', borderRadius:'5px', flex:'0 0 auto', display:'flex', justifyContent:'center', alignItems:'center'}}>
       <div> Element 1 </div>
-    </div>
+    </div></div>
   }
 
   render(){
@@ -35,14 +35,13 @@ class Main extends Component{
       <div className={style.main}>
         <div className={`${style.leftPanel} ${style.verticalCenter}`} >
           <img src="http://cdn.bulbagarden.net/upload/0/0d/025Pikachu.png" style={{height:'500px', left:'80px', position:'absolute', overflow:'hidden'}}/>
-          <div style={{overflowY:'auto', zIndex:'500', backgroundColor:'rgba(255,255,255,0.9)', color:'black', width:'90%', borderRadius:'5px', position:'absolute', top:'20', margin:'auto'}}>
+          <div style={{overflowY:'auto', zIndex:'500', backgroundColor:'rgba(255,255,255,0.9)', color:'black', width:'12em', borderRadius:'5px', position:'absolute', top:'20', left:'20', margin:'auto'}}>
             <div style={{textAlign:'center'}}>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati</div>
           </div>
         </div>
 
 
         <div className={style.rightPanel}>
-        <div style={{backgroundColor:'red', display:'flex', 'flex-wrap':'wrap', '-webkit-flex-flow':'row-wrap'}}>
           {
             () => {
               let list = []
@@ -52,7 +51,6 @@ class Main extends Component{
               return list
             }()
           }
-          </div>
         </div>
       </div>
     )

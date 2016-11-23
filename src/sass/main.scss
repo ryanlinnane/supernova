@@ -35,8 +35,8 @@ html {
   overflow-y: auto;
   overflow-x:hidden;
   display:flex;
-  align-items: stretch;
-
+  flex-wrap: wrap;
+  width:calc(100vw - 15em);
 }
 .verticalCenter {
   display:flex;
