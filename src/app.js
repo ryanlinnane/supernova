@@ -25,7 +25,7 @@ class Main extends Component{
   }
 
   getCell() {
-    return <div style={{backgroundColor:'rgba(255,255,255,0.9)', color:'black', width:'200px', height:'200px', borderRadius:'5px', display:'flex', justifyContent:'center', alignItems:'center'}}>
+    return <div style={{backgroundColor:'rgba(255,255,255,0.9)', color:'black', width:'200px', height:'200px', borderRadius:'5px', flex:'0 0 auto', display:'flex', justifyContent:'center', alignItems:'center'}}>
       <div> Element 1 </div>
     </div>
   }
@@ -42,17 +42,17 @@ class Main extends Component{
 
 
         <div className={style.rightPanel}>
+        <div style={{backgroundColor:'red', display:'flex', 'flex-wrap':'wrap', '-webkit-flex-flow':'row-wrap'}}>
           {
             () => {
               let list = []
               for(let i = 0; i<100; i++) {
-                console.log('ha')
                 list.push(this.getCell())
               }
               return list
             }()
           }
-
+          </div>
         </div>
       </div>
     )
