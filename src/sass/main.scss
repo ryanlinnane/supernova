@@ -24,7 +24,17 @@ html {
   max-width: 15em;
   position: relative;
   overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content: flex-end;
 }
+.clock {
+  text-align:center;
+  font-size: 35px;
+  font-weight:500;
+}
+
+
 .rightPanel {
   padding: 5px;
   background-color: #EBC1BF;

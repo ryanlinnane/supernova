@@ -42,31 +42,35 @@ class Main extends Component{
 
     let cellStyle = key == this.state.hoveredID ? { backgroundColor:'rgb(240, 236, 236)' } : {}
 
-    return <div style={{padding:'5px'}} key={key} draggable="true" onDragStart={(ev) => {
-      ev.dataTransfer.setData("text", "asdf");
+    return <div style={{padding:'5px'}} key={key} draggable="true" test={true} onDragStart={(ev) => {
+      ev.dataTransfer.setData("cellKey", key);
     }}
     onDragOver={(e) => {
       e.preventDefault()
     }}
-    onDrop={(ev) => {
-      ev.preventDefault()
-      var data = ev.dataTransfer.getData("text");
-      var para = document.createElement("p");
-      var node = document.createTextNode("This is new.");
-      ev.target.appendChild(node)
+    onMouseOver={(e) => {
+      this.setState({
+        hoveredID: key
+      })
     }}
-            onMouseOver={(e) => {
-              this.setState({
-                hoveredID: key
-              })
-            }}
-            onMouseLeave={(e) => {
-              this.setState({
-                hoveredID: null
-              })
-            }}>
-    <div className={`${style.cell}`} style={{...this.getColorStyle(this.state.color), ...cellStyle }}>
-      <div> Element {content}</div>
+    onMouseLeave={(e) => {
+      this.setState({
+        hoveredID: null
+      })
+    }}>
+    <div className={`${style.cell}`} style={{...this.getColorStyle(this.state.color), ...cellStyle }} onDrop={(ev) => {
+        //alert(ev.target.dataset.typeCell)
+          var data = ev.dataTransfer.getData("cellKey");
+          if(data == null || data == undefined || data == '') {
+            return
+          }
+          ev.preventDefault()
+          // var para = document.createElement("p");
+          // var node = document.createTextNode("This is new.");
+          //TODO: reset grid map to swapped positions if valid.
+          // ev.target.appendChild(node)
+        }}>
+      <div style={{fontSize:'25px'}}> Level {content}</div>
     </div>
     </div>
   }
@@ -79,13 +83,16 @@ class Main extends Component{
 
     return(
       <div className={style.main}>
-        <div className={`${style.leftPanel} ${style.verticalCenter}`} >
+        <div className={`${style.leftPanel}`} >
           <img src="http://cdn.bulbagarden.net/upload/0/0d/025Pikachu.png" className={style.bgIcon}/>
           <div className={style.about}>
             <div style={{textAlign:'center'}}>
               At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
               praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
                excepturi sint occaecati</div>
+          </div>
+          <div className={style.clock}>
+            <p> 0:00 </p>
           </div>
         </div>
         <div className={style.rightPanel}>
