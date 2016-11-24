@@ -39,8 +39,22 @@ class Main extends Component{
   }
 
   getCell(content, key) {
-    return <div style={{padding:'5px'}} key={key}>
-    <div className={`${style.cell}`} style={this.getColorStyle(this.state.color)}>
+
+    let cellStyle = key == this.state.hoveredID ? { backgroundColor:'rgb(240, 236, 236)' } : {}
+
+    return <div style={{padding:'5px'}} key={key}
+            onMouseOver={(e) => {
+              this.setState({
+                hoveredID: key
+              })
+            }}
+            onMouseLeave={(e) => {
+              this.setState({
+                hoveredID: null
+              })
+            }}
+    >
+    <div className={`${style.cell}`} style={{...this.getColorStyle(this.state.color), ...cellStyle }}>
       <div> Element {content}</div>
     </div>
     </div>
