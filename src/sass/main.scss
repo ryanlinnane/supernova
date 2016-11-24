@@ -6,7 +6,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
 html {
   margin: 0;
   padding: 0;
@@ -56,8 +55,6 @@ html {
   justify-content: center;
   align-items: center;
 }
-
-
 .bgIcon {
   height:500px;
   left:80px;
@@ -84,15 +81,28 @@ html {
 @media (max-width: 767px) {
   .main {
     flex-direction: column;
-
   }
   .leftPanel {
-    width:100vw;
-    max-width: auto;
-    flex:0 0 45em;
+    background-color:#333333;
+    color: #AEBFCE;
+    flex:0 0 auto;
+    position: relative;
+    overflow:hidden;
+    max-width: none;
+    padding: 5px 0px;
   }
   .rightPanel {
     width:auto;
+  }
+  .bgIcon {
+    display:none;
+  }
+  .about {
+    position:relative;
+    top:auto;
+    width:auto;
+    left:auto;
+    width:90%;
   }
 
 }
