@@ -5,7 +5,7 @@ var webpack = require('webpack');
 
 module.exports = {
   entry:{
-    app:["webpack/hot/dev-server", "./src/app.js"]
+    app:["babel-polyfill","webpack/hot/dev-server", "./src/app.js"]
   },
   output:{
     filename:"bundle.js",

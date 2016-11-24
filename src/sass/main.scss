@@ -36,13 +36,29 @@ html {
   overflow-x:hidden;
   display:flex;
   flex-wrap: wrap;
-  width:calc(100vw - 15em);
+  width:calc(100vw - 16em);
+  justify-content: center;
 }
 .verticalCenter {
   display:flex;
   flex-direction:column;
   justify-content: center;
   align-items: center;
+}
+.cell {
+  background-color:rgba(255,255,255,0.9);
+  color: black;
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cell:hover {
+  box-shadow: 5px 5px 5px #888888;
+
 }
 
 //flexs my right content on small screens

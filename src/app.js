@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import reducer from './reducers/index.js';
 import { render } from 'react-dom'
 import * as homeActions from './actions/home.js';
-
+import colorPulse from './lib/color'
 class Main extends Component{
   constructor(props) {
     super(props);
@@ -19,15 +19,32 @@ class Main extends Component{
   }
 
   componentDidMount() {
+    // console.log('getting colors ')
+    // let colorGenerator = colorPulse([[0,0,0], [255,255,255]])
+    // console.log('generator ' + colorGenerator)
+    //
+    //
+    console.log('about to yield.')
+    function *test() {
+
+    }
+  //   console.log('yielding..')
+  //   let it = test()
+  //   console.log(it.next())
   }
 
   componentDidUpdate() {
+
+
+
   }
 
-  getCell() {
-    return <div style={{padding:'5px'}}><div style={{backgroundColor:'rgba(255,255,255,0.9)', color:'black', width:'200px', height:'200px', borderRadius:'5px', flex:'0 0 auto', display:'flex', justifyContent:'center', alignItems:'center'}}>
-      <div> Element 1 </div>
-    </div></div>
+  getCell(content) {
+    return <div style={{padding:'5px'}}>
+    <div className={style.cell}>
+      <div> Element {content}</div>
+    </div>
+    </div>
   }
 
   render(){
@@ -39,14 +56,12 @@ class Main extends Component{
             <div style={{textAlign:'center'}}>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati</div>
           </div>
         </div>
-
-
         <div className={style.rightPanel}>
           {
             () => {
               let list = []
               for(let i = 0; i<100; i++) {
-                list.push(this.getCell())
+                list.push(this.getCell(i))
               }
               return list
             }()
