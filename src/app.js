@@ -42,7 +42,19 @@ class Main extends Component{
 
     let cellStyle = key == this.state.hoveredID ? { backgroundColor:'rgb(240, 236, 236)' } : {}
 
-    return <div style={{padding:'5px'}} key={key}
+    return <div style={{padding:'5px'}} key={key} draggable="true" onDragStart={(ev) => {
+      ev.dataTransfer.setData("text", "asdf");
+    }}
+    onDragOver={(e) => {
+      e.preventDefault()
+    }}
+    onDrop={(ev) => {
+      ev.preventDefault()
+      var data = ev.dataTransfer.getData("text");
+      var para = document.createElement("p");
+      var node = document.createTextNode("This is new.");
+      ev.target.appendChild(node)
+    }}
             onMouseOver={(e) => {
               this.setState({
                 hoveredID: key
@@ -52,8 +64,7 @@ class Main extends Component{
               this.setState({
                 hoveredID: null
               })
-            }}
-    >
+            }}>
     <div className={`${style.cell}`} style={{...this.getColorStyle(this.state.color), ...cellStyle }}>
       <div> Element {content}</div>
     </div>
