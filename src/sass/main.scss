@@ -56,14 +56,43 @@ html {
   justify-content: center;
   align-items: center;
 }
-// .cell:hover {
-//   box-shadow: 5px 5px 5px #888888;
-//
-// }
+
+
+.bgIcon {
+  height:500px;
+  left:80px;
+  position:absolute;
+  overflow:hidden;
+  bottom:0px;
+}
+
+.about {
+  overflow-y: auto;
+  z-index:500;
+  background-color: rgba(255,255,255,0.9);
+  color: black;
+  width: 12em;
+  border-radius: 5px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  margin: auto;
+}
+
 
 //flexs my right content on small screens
 @media (max-width: 767px) {
   .main {
-    // flex-direction: column;
+    flex-direction: column;
+
   }
+  .leftPanel {
+    width:100vw;
+    max-width: auto;
+    flex:0 0 45em;
+  }
+  .rightPanel {
+    width:auto;
+  }
+
 }
