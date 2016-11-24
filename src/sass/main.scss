@@ -56,10 +56,10 @@ html {
   justify-content: center;
   align-items: center;
 }
-.cell:hover {
-  box-shadow: 5px 5px 5px #888888;
-
-}
+// .cell:hover {
+//   box-shadow: 5px 5px 5px #888888;
+//
+// }
 
 //flexs my right content on small screens
 @media (max-width: 767px) {

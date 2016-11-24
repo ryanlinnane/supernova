@@ -8,13 +8,9 @@ export default function color(colorList) {
   }
 
   function *colorPulse(start = [255, 255, 255], goal = undefined) {
-    if(goal === undefined || goal === null) {
-      //set to random goal from list
-      goal = randomColor()
-    }
-    if(start[0] === goal[0] && start[1] === goal[1] && start[2] === goal[2]) {
+    if(goal === undefined || goal === null || start[0] === goal[0] && start[1] === goal[1] && start[2] === goal[2]) {
       //pick new random
-      requestAnimationFrame(() => colorPulse(start, randomColor()))
+      yield * colorPulse(start, randomColor())
     }
     else {
       //move start towards goal!
@@ -34,12 +30,11 @@ export default function color(colorList) {
         current.push(moveTo)
       }
       //if goal reached. pick new goal.
-      let state = Object.assign({}, this.state)
       // state[stateKey] = current
       yield current
-      requestAnimationFrame(() => colorPulse(current, goal))
+      yield * colorPulse(current, goal)
     }
   }
-  return colorPulse()
+  return colorPulse(undefined, [0,0,0])
 
 }
