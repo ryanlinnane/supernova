@@ -12,10 +12,13 @@ import reducer from './reducers/index.js';
 import { render } from 'react-dom'
 import * as homeActions from './actions/home.js';
 import colorPulse from './lib/color'
+import Modal from './components/modal'
+
+
 class Main extends Component{
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = { selectedImage: null }
     this.colorStep = this.colorStep.bind(this)
   }
 
@@ -35,38 +38,15 @@ class Main extends Component{
     this.colorStep(colorGenerator)
   }
 
-  componentDidUpdate() {
-  }
+  componentDidUpdate() { }
 
   getCell(content, key) {
-
     let cellStyle = key == this.state.hoveredID ? { backgroundColor:'rgb(240, 236, 236)' } : {}
-
-    return <div className={`${style.cell}`}  style={{ ...this.getColorStyle(this.state.color), ...cellStyle , ...{ margin:'5px'}}} key={key} draggable="true" test={true} onDragStart={(ev) => {
-      ev.dataTransfer.setData("cellKey", key);
-    }}
-    onDragOver={(e) => {
-      e.preventDefault()
-    }}
-    onMouseOver={(e) => {
+    return <div className={`${style.cell}`}  style={{ ...this.getColorStyle(this.state.color), ...cellStyle , ...{ margin:'5px'}}} key={key} onClick={() => {
       this.setState({
-        hoveredID: key
+        selectedImage: content
       })
-    }}
-    onMouseLeave={(e) => {
-      this.setState({
-        hoveredID: null
-      })
-    }}
-    onDrop={(ev) => {
-        //alert(ev.target.dataset.typeCell)
-          var data = ev.dataTransfer.getData("cellKey");
-          if(data == null || data == undefined || data == '') {
-            return
-          }
-          ev.preventDefault()
-          //TODO: reset grid map to swapped positions if valid.
-        }}>
+    }}>
       <div style={{fontSize:'25px'}}> Level {content}</div>
     </div>
   }
@@ -79,6 +59,9 @@ class Main extends Component{
 
     return(
       <div className={style.main}>
+        <Modal selectedImage={this.state.selectedImage} onExit={() => {this.setState({
+          selectedImage: null
+        })}}/>
         <div className={`${style.leftPanel}`} >
           <img src="http://cdn.bulbagarden.net/upload/0/0d/025Pikachu.png" className={style.bgIcon}/>
           <div className={style.about}>
