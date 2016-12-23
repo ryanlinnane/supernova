@@ -33,6 +33,14 @@ class Main extends Component{
     requestAnimationFrame(() => this.colorStep(colorGenerator))
   }
 
+  componentWillMount() {
+    let images = []
+    for(let i = 0; i<20; i++) {
+      images.push(i)
+    }
+    this.setState({ images })
+  }
+
   componentDidMount() {
     let colorGenerator = colorPulse([[0,0,0], [255,255,255],  [1, 167, 184], [34, 218, 212]])
     this.colorStep(colorGenerator)
@@ -61,7 +69,14 @@ class Main extends Component{
       <div className={style.main}>
         <Modal selectedImage={this.state.selectedImage} onExit={() => {this.setState({
           selectedImage: null
-        })}}/>
+        })}}
+        onNext={() => {
+          this.setState({ selectedImage: (this.state.selectedImage + 1) })
+        }}
+        onPrev={() => {
+          this.setState({ selectedImage: (this.state.selectedImage - 1) })
+        }}
+        />
         <div className={`${style.leftPanel}`} >
           <img src="http://cdn.bulbagarden.net/upload/0/0d/025Pikachu.png" className={style.bgIcon}/>
           <div className={style.about}>
@@ -76,13 +91,7 @@ class Main extends Component{
         </div>
         <div className={style.rightPanel}>
           {
-            () => {
-              let list = []
-              for(let i = 0; i<20; i++) {
-                list.push(this.getCell(i, i))
-              }
-              return list
-            }()
+            this.state.images.map(i => this.getCell(i, i))
           }
         </div>
       </div>

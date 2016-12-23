@@ -1,0 +1,15 @@
+
+
+.modal {
+  background-color:red;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  z-index: 1000;
+  background-color:rgba(61, 61, 61, 0.78);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
