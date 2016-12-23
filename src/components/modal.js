@@ -5,6 +5,29 @@ export default class Modal extends Component {
     super(props)
     this.state = { isMouseOver: false }
   }
+
+  handleKey(e) {
+    console.log(e.keyCode)
+    switch(e.keyCode) {
+      case 37:
+        console.log('prev!' + this.props.onPrev)
+        this.props.onPrev()
+        break
+      case 39:
+        this.props.onNext()
+        break
+      case 27:
+        this.props.onExit()
+        break
+      default:
+        break;
+    }
+  }
+
+  componentDidMount() {
+
+    window.addEventListener('keydown', (e) => this.handleKey.call(this, e))
+  }
   render() {
     if(this.props.selectedImage == null) {
         return null

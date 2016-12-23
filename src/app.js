@@ -71,10 +71,10 @@ class Main extends Component{
           selectedImage: null
         })}}
         onNext={() => {
-          this.setState({ selectedImage: (this.state.selectedImage + 1) })
+          this.setState({ selectedImage: (this.state.selectedImage + 1 + this.state.images.length) % this.state.images.length })
         }}
         onPrev={() => {
-          this.setState({ selectedImage: (this.state.selectedImage - 1) })
+          this.setState({ selectedImage: (this.state.selectedImage - 1 + this.state.images.length) % this.state.images.length })
         }}
         />
         <div className={`${style.leftPanel}`} >
@@ -98,9 +98,6 @@ class Main extends Component{
     )
   }
 }
-
-
-
 
 const mapDispatchToProps = (dispatch) => {
   return {
