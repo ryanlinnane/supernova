@@ -42,7 +42,7 @@ class Main extends Component{
 
     let cellStyle = key == this.state.hoveredID ? { backgroundColor:'rgb(240, 236, 236)' } : {}
 
-    return <div style={{padding:'5px'}} key={key} draggable="true" test={true} onDragStart={(ev) => {
+    return <div className={`${style.cell}`}  style={{ ...this.getColorStyle(this.state.color), ...cellStyle , ...{ margin:'5px'}}} key={key} draggable="true" test={true} onDragStart={(ev) => {
       ev.dataTransfer.setData("cellKey", key);
     }}
     onDragOver={(e) => {
@@ -57,21 +57,17 @@ class Main extends Component{
       this.setState({
         hoveredID: null
       })
-    }}>
-    <div className={`${style.cell}`} style={{...this.getColorStyle(this.state.color), ...cellStyle }} onDrop={(ev) => {
+    }}
+    onDrop={(ev) => {
         //alert(ev.target.dataset.typeCell)
           var data = ev.dataTransfer.getData("cellKey");
           if(data == null || data == undefined || data == '') {
             return
           }
           ev.preventDefault()
-          // var para = document.createElement("p");
-          // var node = document.createTextNode("This is new.");
           //TODO: reset grid map to swapped positions if valid.
-          // ev.target.appendChild(node)
         }}>
       <div style={{fontSize:'25px'}}> Level {content}</div>
-    </div>
     </div>
   }
 
@@ -99,7 +95,7 @@ class Main extends Component{
           {
             () => {
               let list = []
-              for(let i = 0; i<100; i++) {
+              for(let i = 0; i<20; i++) {
                 list.push(this.getCell(i, i))
               }
               return list
