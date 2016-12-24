@@ -12,6 +12,8 @@ import { render } from 'react-dom'
 import * as homeActions from './actions/home.js';
 import colorPulse from './lib/color'
 import Modal from './components/modal'
+import 'whatwg-fetch'
+const flickrRoute = 'https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=24084cab33ca5e8de996a7c9d393d81b&user_id=133508911%40N08&format=json&nojsoncallback=1&api_sig=b554f59fb31caf59f377674d840cb9d1'
 
 
 class Main extends Component{
@@ -38,6 +40,22 @@ class Main extends Component{
       images.push(i)
     }
     this.setState({ images })
+
+    fetch(flickrRoute).then(response => {
+      console.log('fetched' + JSON.stringify(response, null, 4))
+      return response.json()
+    })
+    .then(data => {
+      console.log('data ' + JSON.stringify(data, null, 4))
+      // let urls = []
+      const photo = data.photos.photo
+      let urls = photo.map(photo => `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.secret}.jpg`)
+      console.log('urls ' + urls)
+      this.setState({urls})
+    })
+    .catch(err => {
+      console.error(err)
+    })
   }
 
   componentDidMount() {
@@ -84,27 +102,25 @@ class Main extends Component{
         />
         <div className={`${style.leftPanel}`} >
           <div className={style.about}>
-              <div style={{display:'flex', alignItems:'center'}}>
-                <div style={{marginRight:'3px'}}>RYAN LINNANE</div>
+              <div style={{display:'flex', alignItems:'center', marginBottom:'10px'}}>
+                <div style={{marginRight:'3px', fontSize:'20px', fontWeight:'500'}}>RYAN LINNANE</div>
                 <img src={require('./public/images/source_code_filled.png')} style={{width:'30px'}}/>
               </div>
               {/*left*/}
               <div>
                 <div style={{paddingLeft:'20px'}}>
-                  FIRST
+                  HOME
                 </div>
                 <div style={{backgroundColor:'rgb(153, 153, 153)', paddingLeft:'20px'}}>
-                  SECOND
-                </div>
-                <div  style={{paddingLeft:'20px'}}>
                   GALLERY
                 </div>
+
                 <div  style={{paddingLeft:'20px'}}>
-                  ABOUT ME
+                  ABOUT
                 </div>
               </div>
           </div>
-          <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', maxWidth:'230px', margin:'0px auto'}}>
+          <div style={{display:'flex', alignItems:'center', justifyContent:'space-around', maxWidth:'100%', minWidth:'210px', margin:'0px auto', padding:'5px 0px'}}>
             <a href="https://google.com"><img src={require('./public/images/white-social/github.png')} style={{width:'25px', opacity:'.8'}}/></a>
             <a><img src={require('./public/images/white-social/instagram.png')} style={{width:'25px', opacity:'.8'}}/></a>
             <a><img src={require('./public/images/white-social/linkedin.png')} style={{width:'25px', opacity:'.8'}}/></a>
@@ -114,9 +130,13 @@ class Main extends Component{
           </div>
         </div>
         <div className={style.rightPanel} style={{backgroundImage:`url(${require('./public/images/star2.png')})`}}>
-          {
+
+
+          <div className={style.gallery}>{
+            /*Render path specific view inside of here*/
             this.state.images.map(i => this.getCell(i, i))
           }
+          </div>
         </div>
       </div>
     )
@@ -125,18 +145,19 @@ class Main extends Component{
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    changePic: (src) => dispatch(homeActions.changePic(src))
   }
-};
+}
+
 const mapStateToProps = (state) => {
   return {
     imageSrc: state.home.imageSrc
   }
-};
+}
 
 const MainContainer =
   connect(mapStateToProps,
    mapDispatchToProps)(Main);
-//<Provider store={createStore(reducer)}><MainContainer/></Provider>
 
-render(<Provider store={createStore(reducer)}><MainContainer /></Provider>, document.getElementById('root'));
+render(<Provider store={createStore(reducer)}>
+  <MainContainer />
+</Provider>, document.getElementById('root'));

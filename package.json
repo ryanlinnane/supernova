@@ -22,7 +22,8 @@
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-redux": "^4.4.5",
-    "redux": "^3.5.2"
+    "redux": "^3.5.2",
+    "whatwg-fetch": "^2.0.1"
   },
   "devDependencies": {
     "babel": "^5.8.23",
