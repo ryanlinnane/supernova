@@ -4,7 +4,6 @@
 import React from "react";
 let { Component } = React;
 import style from './sass/main.scss';
-import vid from './public/Infinity/MP4/Infinity.mp4';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { connect } from 'react-redux';
@@ -84,18 +83,37 @@ class Main extends Component{
         }}
         />
         <div className={`${style.leftPanel}`} >
-          <img src="http://cdn.bulbagarden.net/upload/0/0d/025Pikachu.png" className={style.bgIcon}/>
           <div className={style.about}>
-            <div style={{textAlign:'center'}}>
-              Ryan Linnane
-
-             </div>
+              <div style={{display:'flex', alignItems:'center'}}>
+                <div style={{marginRight:'3px'}}>RYAN LINNANE</div>
+                <img src={require('./public/images/source_code_filled.png')} style={{width:'30px'}}/>
+              </div>
+              {/*left*/}
+              <div>
+                <div style={{paddingLeft:'20px'}}>
+                  FIRST
+                </div>
+                <div style={{backgroundColor:'rgb(153, 153, 153)', paddingLeft:'20px'}}>
+                  SECOND
+                </div>
+                <div  style={{paddingLeft:'20px'}}>
+                  GALLERY
+                </div>
+                <div  style={{paddingLeft:'20px'}}>
+                  ABOUT ME
+                </div>
+              </div>
           </div>
-          <div className={style.clock}>
-            <p> 0:00 </p>
+          <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', maxWidth:'230px', margin:'0px auto'}}>
+            <a href="https://google.com"><img src={require('./public/images/white-social/github.png')} style={{width:'25px', opacity:'.8'}}/></a>
+            <a><img src={require('./public/images/white-social/instagram.png')} style={{width:'25px', opacity:'.8'}}/></a>
+            <a><img src={require('./public/images/white-social/linkedin.png')} style={{width:'25px', opacity:'.8'}}/></a>
+            <a><img src={require('./public/images/white-social/medium.png')} style={{width:'25px', opacity:'.8'}}/></a>
+            <a><img src={require('./public/images/white-social/snapchat.png')} style={{width:'25px', opacity:'.8'}}/></a>
+            <a><img src={require('./public/images/white-social/twitter.png')} style={{width:'25px', opacity:'.8'}}/></a>
           </div>
         </div>
-        <div className={style.rightPanel}>
+        <div className={style.rightPanel} style={{backgroundImage:`url(${require('./public/images/star2.png')})`}}>
           {
             this.state.images.map(i => this.getCell(i, i))
           }
