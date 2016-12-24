@@ -42,10 +42,8 @@ export default class Modal extends Component {
     }
     return (
       <div className={styles.modal} onClick={this.props.onExit} >
-        <div style={{width:'500px', height:'500px', minWidth:'300px', backgroundColor:'white', borderRadius:'5px', position:'relative'}} onClick={(e) => {e.stopPropagation()}} onMouseOver={() => {this.setState({isMouseOver: true})}} onMouseLeave={() => {this.setState({isMouseOver: false})}}>
-
-
-          <div> {this.props.selectedImage} </div>
+        <div style={{width:'auto', height:'auto', borderRadius:'5px', position:'relative'}} onClick={(e) => {e.stopPropagation()}} onMouseOver={() => {this.setState({isMouseOver: true})}} onMouseLeave={() => {this.setState({isMouseOver: false})}}>
+          <img src={this.props.selectedImage} style={{width:'100%'}}/>
           <div style={leftArrowStyles} onClick={(e) => {e.stopPropagation(); this.props.onPrev()}}><img src={require('./previous.png')} style={{width:'60px'}} /></div>
           <div style={rightArrowStyles} onClick={(e) => {e.stopPropagation(); this.props.onNext()}}><img src={require('./next.png')} style={{width:'60px'}} /></div>
 

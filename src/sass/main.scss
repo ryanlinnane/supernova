@@ -50,15 +50,11 @@ html {
   flex-direction:column;
 }
 
-
 .verticalCenter {
   display:flex;
   flex-direction:column;
   justify-content: center;
   align-items: center;
-}
-.cell {
-  background-color:rgba(255,255,255,0.9);
 }
 
 .about {

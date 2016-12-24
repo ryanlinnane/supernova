@@ -19,7 +19,7 @@ const flickrRoute = 'https://api.flickr.com/services/rest/?method=flickr.people.
 class Main extends Component{
   constructor(props) {
     super(props);
-    this.state = { selectedImage: null, photoUrls:[] }
+    this.state = { selectedImageIndex: null, photoUrls:[] }
     this.colorStep = this.colorStep.bind(this)
   }
 
@@ -67,13 +67,12 @@ class Main extends Component{
 
   getCell(url, key) {
     let cellStyle = key == this.state.hoveredID ? { backgroundColor:'rgb(240, 236, 236)' } : {}
-    return <div className={`${style.cell}`}  style={{ ...this.getColorStyle(this.state.color), ...cellStyle , ...{ margin:'5px'}}} key={key} onClick={() => {
+    return <img src={url} style={{ ...this.getColorStyle(this.state.color), ...cellStyle , ...{ margin:'10px 5px'}}} key={key} onClick={() => {
       this.setState({
-        selectedImage: url
+        selectedImageIndex: key
       })
-    }}>
-        <img src={url} style={{padding:'0px', margin:'0px'}}/>
-    </div>
+    }} />
+
   }
 
   getColorStyle(rgbVector = [0,0,0]) {
@@ -84,19 +83,19 @@ class Main extends Component{
 
     return(
       <div className={style.main}>
-        <Modal selectedImage={this.state.selectedImage} onExit={() => {
+        <Modal selectedImage={this.state.photoUrls[this.state.selectedImageIndex]} onExit={() => {
           this.setState({
-            selectedImage: null
+            selectedImageIndex: null
           })
         }}
         onNext={() => {
-          if(this.state.selectedImage != null) {
-            this.setState({ selectedImage: (this.state.selectedImage + 1 + this.state.images.length) % this.state.images.length })
+          if(this.state.selectedImageIndex != null) {
+            this.setState({ selectedImageIndex: (this.state.selectedImageIndex + 1 + this.state.photoUrls.length) % this.state.photoUrls.length })
           }
         }}
         onPrev={() => {
-          if(this.state.selectedImage != null) {
-            this.setState({ selectedImage: (this.state.selectedImage - 1 + this.state.images.length) % this.state.images.length })
+          if(this.state.selectedImageIndex != null) {
+            this.setState({ selectedImageIndex: (this.state.selectedImageIndex - 1 + this.state.photoUrls.length) % this.state.photoUrls.length })
           }
         }}
         />
