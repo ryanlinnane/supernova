@@ -67,23 +67,29 @@ class Main extends Component{
 
     return(
       <div className={style.main}>
-        <Modal selectedImage={this.state.selectedImage} onExit={() => {this.setState({
-          selectedImage: null
-        })}}
+        <Modal selectedImage={this.state.selectedImage} onExit={() => {
+          this.setState({
+            selectedImage: null
+          })
+        }}
         onNext={() => {
-          this.setState({ selectedImage: (this.state.selectedImage + 1 + this.state.images.length) % this.state.images.length })
+          if(this.state.selectedImage != null) {
+            this.setState({ selectedImage: (this.state.selectedImage + 1 + this.state.images.length) % this.state.images.length })
+          }
         }}
         onPrev={() => {
-          this.setState({ selectedImage: (this.state.selectedImage - 1 + this.state.images.length) % this.state.images.length })
+          if(this.state.selectedImage != null) {
+            this.setState({ selectedImage: (this.state.selectedImage - 1 + this.state.images.length) % this.state.images.length })
+          }
         }}
         />
         <div className={`${style.leftPanel}`} >
           <img src="http://cdn.bulbagarden.net/upload/0/0d/025Pikachu.png" className={style.bgIcon}/>
           <div className={style.about}>
             <div style={{textAlign:'center'}}>
-              At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-              praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
-               excepturi sint occaecati</div>
+              Ryan Linnane
+
+             </div>
           </div>
           <div className={style.clock}>
             <p> 0:00 </p>
