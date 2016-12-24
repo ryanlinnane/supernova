@@ -19,7 +19,7 @@ const flickrRoute = 'https://api.flickr.com/services/rest/?method=flickr.people.
 class Main extends Component{
   constructor(props) {
     super(props);
-    this.state = { selectedImage: null }
+    this.state = { selectedImage: null, photoUrls:[] }
     this.colorStep = this.colorStep.bind(this)
   }
 
@@ -49,9 +49,9 @@ class Main extends Component{
       console.log('data ' + JSON.stringify(data, null, 4))
       // let urls = []
       const photo = data.photos.photo
-      let urls = photo.map(photo => `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.secret}.jpg`)
+      let urls = photo.map(photo => `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`)
       console.log('urls ' + urls)
-      this.setState({urls})
+      this.setState({photoUrls: urls})
     })
     .catch(err => {
       console.error(err)
@@ -65,14 +65,14 @@ class Main extends Component{
 
   componentDidUpdate() { }
 
-  getCell(content, key) {
+  getCell(url, key) {
     let cellStyle = key == this.state.hoveredID ? { backgroundColor:'rgb(240, 236, 236)' } : {}
     return <div className={`${style.cell}`}  style={{ ...this.getColorStyle(this.state.color), ...cellStyle , ...{ margin:'5px'}}} key={key} onClick={() => {
       this.setState({
-        selectedImage: content
+        selectedImage: url
       })
     }}>
-      <div style={{fontSize:'25px'}}> Level {content}</div>
+        <img src={url} style={{padding:'0px', margin:'0px'}}/>
     </div>
   }
 
@@ -134,7 +134,7 @@ class Main extends Component{
 
           <div className={style.gallery}>{
             /*Render path specific view inside of here*/
-            this.state.images.map(i => this.getCell(i, i))
+            this.state.photoUrls.map((url, index) => this.getCell(url, index))
           }
           </div>
         </div>
