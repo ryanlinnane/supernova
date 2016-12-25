@@ -15,12 +15,10 @@ export default class Gallery extends Component {
     this.willUnmount = false
     this.colorStep = this.colorStep.bind(this)
     this.fetchPhotos = this.fetchPhotos.bind(this)
-
   }
 
   fetchPhotos() {
     this.props.pushLoading('gallery')
-
     fetch(flickrRoute).then(response => {
       return response.json()
     })
@@ -28,6 +26,7 @@ export default class Gallery extends Component {
       const photo = data.photos.photo
       let urls = photo.map(photo => `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`)
       this.setState({photoUrls: urls})
+      // console.log(JSON.stringify(data, null, 4))
       this.props.removeLoading('gallery')
     })
     .catch(err => {

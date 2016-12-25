@@ -9,13 +9,12 @@ import { Provider } from 'react-redux';
 import { connect } from 'react-redux';
 import reducer from './reducers/index.js';
 import { render } from 'react-dom'
-import * as homeActions from './actions/home.js';
 import colorPulse from './lib/color'
 import Modal from './components/modal/modal'
 import 'whatwg-fetch'
 const flickrRoute = 'https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=24084cab33ca5e8de996a7c9d393d81b&user_id=133508911%40N08&format=json&nojsoncallback=1&api_sig=b554f59fb31caf59f377674d840cb9d1'
 import Gallery from './components/gallery/gallery'
-import Home from './components/home/home'
+import Video from './components/video/video'
 import About from './components/about/about'
 
 class Main extends Component{
@@ -70,14 +69,14 @@ class Main extends Component{
               {/*left*/}
               {
                 () => {
-                  const routes = ['ABOUT', 'GALLERY', 'RESUME', 'BLOG']
+                  const routes = ['ABOUT', 'PHOTO', 'VIDEO', 'RESUME', 'WRITING']
                   return routes.map(route => {
                     let style = {}
                     if(route.toLowerCase() == this.state.routeID) {
                       style['backgroundColor'] = 'rgb(161, 161, 161)'
                     }
                     return <div key={route} className={styles.leftSelector} style={style} onClick={() => {
-                      if(route.toLowerCase() == 'blog') {
+                      if(route.toLowerCase() == 'writing') {
                         //exit early if blog site
                         window.open('https://ryanlinnane.github.io', '__blank')
                         return
@@ -107,10 +106,10 @@ class Main extends Component{
           {
             () => {
               switch(this.state.routeID) {
-                case 'gallery':
+                case 'photo':
                   return <Gallery removeLoading={this.removeLoading} pushLoading={this.pushLoading}/>
-                case 'home':
-                  return <Home />
+                case 'video':
+                  return <Video />
                 return
                 case 'about':
                   return <About />

@@ -9,15 +9,27 @@ export default class About extends Component {
         'CS MS Canditate @ GATech',
         'Loves food, drink, javascript'
       ],
-      index: 0
+      index: 0,
+      intervalID: null
     }
   }
   componentDidMount() {
-    setInterval(() => {
+    const intervalID = setInterval(() => {
       this.setState({
           index: (this.state.index + 1) % this.state.messages.length
       })
     }, 3000)
+    this.setState({
+      intervalID
+    })
+  }
+  clear() {
+    if(this.state.intervalID != null) {
+      clearInterval(this.state.intervalID)
+    }
+  }
+  componentWillUnmount() {
+    this.clear.call(this)
   }
   render() {
     return <div className={styles.container}>
