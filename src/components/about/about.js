@@ -7,21 +7,34 @@ export default class About extends Component {
       messages: [
         'Fullstack Engineer @ Austin Sigma',
         'CS MS Canditate @ GATech',
-        'Loves food, drink, javascript'
+        'Food, drink, hacking'
       ],
-      index: 0,
+      index: null,
       intervalID: null
     }
   }
   componentDidMount() {
-    const intervalID = setInterval(() => {
+
+    //delay appending CSS fade animator so that it's in sync once the JS interval starts running
+
+    const initInterval = () => {
+      const intervalID = setInterval(() => {
+
+
+        let index = 0
+        if(this.state.index != null) {
+          index = (this.state.index + 1) % this.state.messages.length
+        }
+        this.setState({
+            index
+        })
+      }, 3000)
       this.setState({
-          index: (this.state.index + 1) % this.state.messages.length
+        intervalID
       })
-    }, 3000)
-    this.setState({
-      intervalID
-    })
+    }
+
+    requestAnimationFrame(initInterval, 0)
   }
   clear() {
     if(this.state.intervalID != null) {
@@ -33,7 +46,7 @@ export default class About extends Component {
   }
   render() {
     return <div className={styles.container}>
-      <div className={styles.text}>{this.state.messages[this.state.index]}</div>
+      <div className={this.state.index != null ? styles.text : {}}>{this.state.messages[this.state.index]}</div>
     </div>
   }
 }
