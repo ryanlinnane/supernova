@@ -2,7 +2,7 @@ import styles from './gallery.scss'
 import React, { Component } from 'react'
 import colorPulse from '../../lib/color'
 import Modal from '../modal/modal'
-const flickrRoute = 'https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=24084cab33ca5e8de996a7c9d393d81b&user_id=133508911%40N08&format=json&nojsoncallback=1&api_sig=b554f59fb31caf59f377674d840cb9d1'
+const flickrRoute = 'https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=d41e0adfda7ef838087d4005ec9c4163&user_id=133508911%40N08&format=json&nojsoncallback=1'
 
 
 export default class Gallery extends Component {
@@ -23,6 +23,8 @@ export default class Gallery extends Component {
       return response.json()
     })
     .then(data => {
+      console.log(JSON.stringify(data, null, 4))
+
       const photo = data.photos.photo
       let urls = photo.map(photo => `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`)
       this.setState({photoUrls: urls})
