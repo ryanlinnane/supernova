@@ -10,7 +10,6 @@ export default class Modal extends Component {
     console.log(e.keyCode)
     switch(e.keyCode) {
       case 37:
-        console.log('prev!' + this.props.onPrev)
         this.props.onPrev()
         break
       case 39:
@@ -25,20 +24,20 @@ export default class Modal extends Component {
   }
 
   componentDidMount() {
-
     window.addEventListener('keydown', (e) => this.handleKey.call(this, e))
+  }
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.handleKey)
   }
   render() {
     if(this.props.selectedImage == null) {
         return null
     }
-    console.log('isMouseOver ' + this.state.isMouseOver)
     let leftArrowStyles = {left:'0px', opacity:'0.5', top:'calc(50% - 30px)', position:'absolute',padding:'5px', display:'flex', justifyContent:'center', alignItems:'center', display:'none'}
     let rightArrowStyles = {right:'0px',opacity:'0.5', top:'calc(50% - 30px)', position:'absolute', padding:'5px', display:'flex', justifyContent:'center', alignItems:'center', display:'none'}
     if(this.state.isMouseOver) {
       leftArrowStyles = {...leftArrowStyles, display:'block'}
       rightArrowStyles = {...rightArrowStyles, display:'block'}
-
     }
     return (
       <div className={styles.modal} onClick={this.props.onExit} >
@@ -46,10 +45,7 @@ export default class Modal extends Component {
           <img src={this.props.selectedImage} style={{width:'100%'}}/>
           <div style={leftArrowStyles} onClick={(e) => {e.stopPropagation(); this.props.onPrev()}}><img src={require('./previous.png')} style={{width:'60px'}} /></div>
           <div style={rightArrowStyles} onClick={(e) => {e.stopPropagation(); this.props.onNext()}}><img src={require('./next.png')} style={{width:'60px'}} /></div>
-
         </div>
-
-
       </div>
     )
   }

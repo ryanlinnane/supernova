@@ -1,0 +1,11 @@
+.container {
+  color:white;
+  width: 80%;
+  margin: auto auto;
+  background-color:rgba(#8656ba, 1);
+}
+@media (max-width: 767px) {
+  .container {
+    width: 100%;
+  }
+}
