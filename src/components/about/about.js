@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import styles from './about.scss'
+import './animate.css'
 export default class About extends Component {
   constructor(props) {
     super(props)
@@ -9,32 +11,44 @@ export default class About extends Component {
         'CS MS Canditate @ GATech',
         'Food, drink, hacking'
       ],
-      index: null,
-      intervalID: null
+      index: 0,
+      intervalID: null,
+      opacity: 0
     }
+    this.fade = this.fade.bind(this)
   }
+
+  fade(val, isIncreasing) {
+    if(val <= 0 && isIncreasing == false) {
+      //transition to next message
+      let index = (this.state.index + 1) % this.state.messages.length
+      this.setState({
+          index
+      })
+      isIncreasing = true
+    }
+    else if(val >= 1  && isIncreasing == true) {
+      isIncreasing = false
+    }
+    if(isIncreasing) {
+      val += 0.01
+    }
+    else {
+      val -= 0.01
+    }
+    requestAnimationFrame(() => {
+      this.setState({
+        opacity: val
+      })
+      this.fade(val, isIncreasing)
+    })
+  }
+
+
   componentDidMount() {
 
     //delay appending CSS fade animator so that it's in sync once the JS interval starts running
-
-    const initInterval = () => {
-      const intervalID = setInterval(() => {
-
-
-        let index = 0
-        if(this.state.index != null) {
-          index = (this.state.index + 1) % this.state.messages.length
-        }
-        this.setState({
-            index
-        })
-      }, 3000)
-      this.setState({
-        intervalID
-      })
-    }
-
-    requestAnimationFrame(initInterval, 0)
+    this.fade(0, true)
   }
   clear() {
     if(this.state.intervalID != null) {
@@ -45,11 +59,13 @@ export default class About extends Component {
     this.clear.call(this)
   }
   render() {
-    let content = <div style={{fontSize:'28px'}}>RYAN LINNANE</div>
+    let content = <div style={{fontSize:'28px'}}>
+      RYAN LINNANE
+    </div>
     if(this.state.index != null) {
       content = (
         <div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-between'}}>
-          <div className={styles.text}>
+          <div style={{opacity: this.state.opacity}}>
             {this.state.messages[this.state.index]}
           </div>
           <div style={{display:'flex', justifyContent:'center', fontSize:'15px', opacity:'0.5', position:'absolute', bottom:'10px', left:'0px', right:'0px'}}>
@@ -60,7 +76,17 @@ export default class About extends Component {
     }
 
     return <div className={styles.container}>
+    <ReactCSSTransitionGroup
+      transitionName={ {
+        enter: 'enter',
+        enterActive: 'enterActive',
+        leave: 'leave',
+        leaveActive: 'leaveActive',
+        appear: 'appear',
+        appearActive: 'appearActive'
+      } }>
       { content }
+      </ReactCSSTransitionGroup>
     </div>
   }
 }
