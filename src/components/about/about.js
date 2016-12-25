@@ -64,7 +64,7 @@ export default class About extends Component {
 
     let content = (
         <div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-between'}}>
-          <div style={{display:'flex', flexDirection:'column', justifyContent:'center',opacity: this.state.opacity, fontSize:'28px', textAlign:'center', position:'absolute', left:'5px', right:'5px', bottom:'0px', top:'0px'}}>
+          <div style={{display:'flex', flexDirection:'column', justifyContent:'center',opacity: this.state.opacity,  textAlign:'center', position:'absolute', left:'5px', right:'5px', bottom:'0px', top:'0px'}}>
             {this.state.messages[this.state.index]}
           </div>
           <div style={{display:'flex', justifyContent:'center', fontSize:'15px', opacity:'0.5', position:'absolute', bottom:'10px', left:'0px', right:'0px'}}>
