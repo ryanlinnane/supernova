@@ -45,8 +45,22 @@ export default class About extends Component {
     this.clear.call(this)
   }
   render() {
+    let content = <div style={{fontSize:'28px'}}>RYAN LINNANE</div>
+    if(this.state.index != null) {
+      content = (
+        <div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-between'}}>
+          <div className={styles.text}>
+            {this.state.messages[this.state.index]}
+          </div>
+          <div style={{display:'flex', justifyContent:'center', fontSize:'15px', opacity:'0.5', position:'absolute', bottom:'10px', left:'0px', right:'0px'}}>
+            <div> {this.state.index + 1} / {this.state.messages.length} </div>
+          </div>
+        </div>
+      )
+    }
+
     return <div className={styles.container}>
-      <div className={this.state.index != null ? styles.text : {}}>{this.state.messages[this.state.index]}</div>
+      { content }
     </div>
   }
 }
