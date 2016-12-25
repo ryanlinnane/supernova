@@ -3,4 +3,4 @@ git fetch origin
 git reset --hard origin/master
 npm install
 gulp deploy
-sudo systemctl restart landing
+sudo /bin/systemctl restart landing
