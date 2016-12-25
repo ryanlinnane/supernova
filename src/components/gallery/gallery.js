@@ -66,7 +66,7 @@ export default class Gallery extends Component {
   }
   getCell(url, key) {
     let cellStyle = key == this.state.hoveredID ? { backgroundColor:'rgb(240, 236, 236)' } : {}
-    return <img src={url} style={{ ...this.getColorStyle(this.state.color), ...cellStyle , ...{ margin:'10px 5px'}}} key={key} onClick={() => {
+    return <img src={url} style={{ ...this.getColorStyle(this.state.color), ...cellStyle , ...{ margin:'10px 0px', maxWidth:'100%'}}} key={key} onClick={() => {
       this.setState({
         selectedImageIndex: key
       })
