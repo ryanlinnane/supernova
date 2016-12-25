@@ -33,6 +33,7 @@ html {
   flex: 1 0 auto;
   color:black;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   display:flex;
   flex-direction:column;
 }
