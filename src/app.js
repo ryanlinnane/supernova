@@ -22,13 +22,12 @@ class Main extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      routeID: 'home',
+      routeID: 'about',
       loadingIDs: []
     }
     this.setRouteID = this.setRouteID.bind(this)
     this.pushLoading = this.pushLoading.bind(this)
     this.removeLoading = this.removeLoading.bind(this)
-
   }
 
   pushLoading(id) {
@@ -65,13 +64,13 @@ class Main extends Component{
         <div className={`${styles.leftPanel}`} >
           <div className={styles.about}>
               <div style={{display:'flex', alignItems:'center', marginBottom:'10px'}}>
-                <div style={{marginRight:'3px', fontSize:'20px', fontWeight:'500'}}>RYAN LINNANE</div>
+                <div style={{marginRight:'3px', fontSize:'20px', fontWeight:'500', padding:'1px 2px'}}>RYAN LINNANE</div>
                 <img src={this.state.loadingIDs.length == 0 ? require('./public/images/source_code_filled.png'): require('./crazyLoading.gif')} style={{width:'30px'}}/>
               </div>
               {/*left*/}
               {
                 () => {
-                  const routes = ['HOME', 'GALLERY', 'ABOUT', 'BLOG']
+                  const routes = ['ABOUT', 'GALLERY', 'RESUME', 'BLOG']
                   return routes.map(route => {
                     let style = {}
                     if(route.toLowerCase() == this.state.routeID) {
@@ -83,6 +82,10 @@ class Main extends Component{
                         window.open('https://ryanlinnane.github.io', '__blank')
                         return
                       }
+                      else if(route.toLowerCase() == 'resume') {
+                        window.open('http://static.awhoof.com/Linnane_Ryan_Resume.pdf', '__blank')
+                        return
+                      }
                       this.setRouteID(route)
                     }}>
                       {route}
@@ -92,12 +95,12 @@ class Main extends Component{
               }
           </div>
           <div style={{display:'flex', alignItems:'center', justifyContent:'space-around', maxWidth:'100%', minWidth:'210px', margin:'0px auto', padding:'5px 0px'}}>
-            <a href="https://google.com"><img src={require('./public/images/white-social/github.png')} style={{width:'25px', opacity:'.8'}}/></a>
-            <a><img src={require('./public/images/white-social/instagram.png')} style={{width:'25px', opacity:'.8'}}/></a>
-            <a><img src={require('./public/images/white-social/linkedin.png')} style={{width:'25px', opacity:'.8'}}/></a>
-            <a><img src={require('./public/images/white-social/medium.png')} style={{width:'25px', opacity:'.8'}}/></a>
-            <a><img src={require('./public/images/white-social/snapchat.png')} style={{width:'25px', opacity:'.8'}}/></a>
-            <a><img src={require('./public/images/white-social/twitter.png')} style={{width:'25px', opacity:'.8'}}/></a>
+            <a href='https://github.com/ryanlinnane' target='__blank'> <img src={require('./public/images/white-social/github.png')} style={{width:'25px', opacity:'.8'}}/></a>
+            <a href='https://www.instagram.com/magicantler/' target='__blank'><img src={require('./public/images/white-social/instagram.png')} style={{width:'25px', opacity:'.8'}}/></a>
+            <a href='https://www.linkedin.com/in/linnaneryan' target='__blank'> <img src={require('./public/images/white-social/linkedin.png')} style={{width:'25px', opacity:'.8'}}/></a>
+            <a href='https://medium.com/@Leef' target='__blank'> <img src={require('./public/images/white-social/medium.png')} style={{width:'25px', opacity:'.8'}}/></a>
+            <a href='https://www.snapchat.com/add/whoof' target='__blank'><img src={require('./public/images/white-social/snapchat.png')} style={{width:'25px', opacity:'.8'}}/></a>
+            <a href='https://twitter.com/mysticantler' target='__blank'> <img src={require('./public/images/white-social/twitter.png')} style={{width:'25px', opacity:'.8'}}/></a>
           </div>
         </div>
         <div className={styles.rightPanel} style={{backgroundImage:`url(${require('./public/images/star2.png')})`}}>

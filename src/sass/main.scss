@@ -21,8 +21,6 @@ html {
 .leftPanel {
   background-color:#333333;
   color: #AEBFCE;
-  flex:0 0 13em;
-  max-width: 13em;
   position: relative;
   display:flex;
   flex-direction:column;
@@ -34,10 +32,7 @@ html {
   background-color: rgba(#252525, 0.34);
   flex: 1 0 auto;
   color:black;
-  z-index: 5;
   overflow-y: auto;
-  // overflow-x:hidden;
-  width:calc(100vw - 14em);
   display:flex;
   flex-direction:column;
 }
@@ -56,16 +51,16 @@ html {
   align-items: center;
 }
 .leftSelector {
-  padding-left:20px;
   font-size:18px;
   cursor: pointer;
+  padding:2px 0px 2px 20px
 }
 .leftSelector:hover {
   background-color: rgba(59, 52, 52, 0.81);
 }
 .about {
   overflow-y: auto;
-  z-index:2;
+  // z-index:0;
   background-color: rgba(255, 255, 255, 0.15);
   border-radius: 0px 5px 5px 0px;
   position: relative;

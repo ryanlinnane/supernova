@@ -95,7 +95,6 @@ export default class Gallery extends Component {
       }
     }}
     />
-
     {
       this.state.photoUrls.map((url, index) => this.getCell(url, index))
     }
