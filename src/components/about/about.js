@@ -60,7 +60,7 @@ export default class About extends Component {
   render() {
 
     let content = (
-        <div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-between', minWidth: '100%', width: '0', padding:'10px'}}>
+        <div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-between',  width: '0'}}>
           <div style={{display:'flex', flexDirection:'column', justifyContent:'center',opacity: this.state.opacity, fontSize:'28px', textAlign:'center', position:'absolute', left:'0px', right:'0px', bottom:'0px', top:'0px'}}>
             {this.state.messages[this.state.index]}
           </div>
@@ -71,17 +71,7 @@ export default class About extends Component {
       )
 
     return <div className={styles.container}>
-    <ReactCSSTransitionGroup
-      transitionName={ {
-        enter: 'enter',
-        enterActive: 'enterActive',
-        leave: 'leave',
-        leaveActive: 'leaveActive',
-        appear: 'appear',
-        appearActive: 'appearActive'
-      } }>
       { content }
-      </ReactCSSTransitionGroup>
     </div>
   }
 }
