@@ -116,7 +116,6 @@ class Main extends Component{
                 default:
                   return null
               }
-
             }()
           }
         </div>
