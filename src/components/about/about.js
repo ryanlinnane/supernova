@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import styles from './about.scss'
-import './animate.css'
 export default class About extends Component {
   constructor(props) {
     super(props)
