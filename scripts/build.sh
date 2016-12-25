@@ -1,5 +1,6 @@
 echo 'build phase'
-git pull origin master
+git fetch origin master
+git reset --hard origin/master
 npm install
 gulp deploy
 sudo systemctl restart landing
