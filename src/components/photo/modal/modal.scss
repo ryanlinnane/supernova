@@ -1,13 +1,13 @@
 
 
 .modal {
-  position: fixed;
+  position: absolute;
   top: 0px;
   left: 0px;
   bottom: 0px;
   right: 0px;
   z-index: 2000;
-  background-color:rgba(61, 61, 61, 0.78);
+  background-color:red; //rgba(61, 61, 61, 0.78)
   display:flex;
   justify-content:center;
   align-items:center;
