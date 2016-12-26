@@ -14,7 +14,7 @@ import Photo from './components/photo/photo'
 import Video from './components/video/video'
 import About from './components/about/about'
 import Resume from './components/resume/resume'
-import styles from './sass/main.scss';
+import styles from './app.scss';
 
 
 
@@ -89,14 +89,9 @@ class Main extends Component{
                     }
                     return <div key={route} className={styles.leftSelector} style={style} onClick={() => {
                       if(route.toLowerCase() == 'writing') {
-                        //exit early if blog site
                         window.open('https://ryanlinnane.github.io', '__blank')
                         return
                       }
-                      // else if(route.toLowerCase() == 'resume') {
-                      //   window.open('http://static.awhoof.com/Linnane_Ryan_Resume.pdf', '__blank')
-                      //   return
-                      // }
                       this.setRouteID(route)
                     }}>
                       {route}
@@ -140,13 +135,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
   }
 }
-
 const mapStateToProps = (state) => {
   return {
-    imageSrc: state.home.imageSrc
   }
 }
-
 const MainContainer =
   connect(mapStateToProps,
    mapDispatchToProps)(Main);

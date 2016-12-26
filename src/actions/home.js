@@ -1,6 +1,4 @@
-export function changePic(src) {
+export function example() {
   return {
-    type: "CHANGE_PIC",
-    src: src
   }
 }
