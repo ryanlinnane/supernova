@@ -64,8 +64,9 @@ class Main extends Component{
         <div className={`${styles.leftPanel}`} >
           <div className={styles.about}>
               <div style={{display:'flex', alignItems:'center', marginBottom:'10px'}}>
-                <div style={{marginRight:'3px', fontSize:'20px', fontWeight:'500', padding:'1px 2px'}}>RYAN LINNANE</div>
-                <img src={this.state.loadingIDs.length == 0 ? require('./public/images/source_code_filled.png'): require('./crazyLoading.gif')} style={{width:'30px'}}/>
+                <div style={{marginRight:'3px', fontSize:'20px', fontWeight:'500', padding:'1px 2px', whiteSpace:'nowrap'}}>   &lt;RYAN LINNANE &#47;&gt;</div>
+
+                {this.state.loadingIDs.length == 0 ? null : <img src={require('./crazyLoading.gif')} style={{width:'30px'}}/>}
               </div>
               {/*left*/}
               {
