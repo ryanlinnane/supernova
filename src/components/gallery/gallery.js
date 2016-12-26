@@ -9,7 +9,7 @@ export default class Gallery extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      photoUrls: [],
+      photoData: [],
       selectedImageIndex: null,
     }
     this.willUnmount = false
@@ -24,9 +24,14 @@ export default class Gallery extends Component {
     })
     .then(data => {
       const photo = data.photos.photo
-      let urls = photo.map(photo => `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`)
-      this.setState({photoUrls: urls})
-      // console.log(JSON.stringify(data, null, 4))
+      //clean url
+      let photoData = photo.map(photo => {
+         let url = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`
+         photo.url = url
+         return photo
+      })
+      this.setState({photoData})
+      console.log(JSON.stringify(data, null, 4))
       this.props.removeLoading('gallery')
     })
     .catch(err => {
@@ -40,7 +45,7 @@ export default class Gallery extends Component {
 
   }
   componentWillReceiveProps(prevProps, nextProps) {
-    console.log('willreceiveprops' + JSON.stringify(prevProps, null, 4))
+    // console.log('willreceiveprops' + JSON.stringify(prevProps, null, 4))
     // this.fetchPhotos()
   }
 
@@ -64,13 +69,16 @@ export default class Gallery extends Component {
     })
     requestAnimationFrame(() => this.colorStep(colorGenerator))
   }
-  getCell(url, key) {
+  getCell(data, key) {
     let cellStyle = key == this.state.hoveredID ? { backgroundColor:'rgb(240, 236, 236)' } : {}
-    return <img src={url} style={{ ...this.getColorStyle(this.state.color), ...cellStyle , ...{ margin:'10px 0px', maxWidth:'100%'}}} key={key} onClick={() => {
-      this.setState({
-        selectedImageIndex: key
-      })
-    }} />
+    return <div style={{color:'white', maxWidth:'480px'}}>
+      { data.title != "" ? <div style={{marginTop:'10px', fontSize:'28px'}}> { data.title.toUpperCase() } </div> : null }
+      <img src={data.url} style={{ ...this.getColorStyle(this.state.color), ...cellStyle , ...{ margin:'10px 0px', maxWidth:'100%'}}} key={key} onClick={() => {
+        this.setState({
+          selectedImageIndex: key
+        })
+      }} />
+    </div>
   }
   getColorStyle(rgbVector = [0,0,0]) {
     return { boxShadow: `5px 5px 5px rgb(${rgbVector.join(',')})` }
@@ -78,24 +86,24 @@ export default class Gallery extends Component {
 
   render() {
     return <div className={styles.gallery}>
-    <Modal selectedImage={this.state.photoUrls[this.state.selectedImageIndex]} onExit={() => {
+    <Modal selectedImage={this.state.photoData[this.state.selectedImageIndex]} onExit={() => {
       this.setState({
         selectedImageIndex: null
       })
     }}
     onNext={() => {
       if(this.state.selectedImageIndex != null) {
-        this.setState({ selectedImageIndex: (this.state.selectedImageIndex + 1 + this.state.photoUrls.length) % this.state.photoUrls.length })
+        this.setState({ selectedImageIndex: (this.state.selectedImageIndex + 1 + this.state.photoData.length) % this.state.photoData.length })
       }
     }}
     onPrev={() => {
       if(this.state.selectedImageIndex != null) {
-        this.setState({ selectedImageIndex: (this.state.selectedImageIndex - 1 + this.state.photoUrls.length) % this.state.photoUrls.length })
+        this.setState({ selectedImageIndex: (this.state.selectedImageIndex - 1 + this.state.photoData.length) % this.state.photoData.length })
       }
     }}
     />
     {
-      this.state.photoUrls.map((url, index) => this.getCell(url, index))
+      this.state.photoData.map((data, index) => this.getCell(data, index))
     }
     </div>
   }
