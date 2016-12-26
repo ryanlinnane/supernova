@@ -70,7 +70,7 @@ export default class Photo extends Component {
     let cellStyle = key == this.state.hoveredID ? { backgroundColor:'rgb(240, 236, 236)' } : {}
     return <div style={{color:'white', maxWidth:'480px'}} key={key}>
       { data.title != "" ? <div style={{marginTop:'10px', fontSize:'28px'}}> { data.title.toUpperCase() } </div> : null }
-      <img src={data.url} style={{ ...this.getColorStyle(this.state.color), ...cellStyle , ...{ margin:'10px 0px', maxWidth:'100%'}}} onClick={() => {
+      <img src={data.url} style={{ ...this.getColorStyle(this.state.color), ...cellStyle , ...{ margin:'10px 0px', maxWidth:'100%', cursor:'pointer'}}} onClick={() => {
         this.setState({
           selectedImageIndex: key
         })
