@@ -5,7 +5,7 @@ import Modal from './modal/modal'
 const flickrRoute = 'https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=d41e0adfda7ef838087d4005ec9c4163&user_id=133508911%40N08&format=json&nojsoncallback=1'
 
 
-export default class Gallery extends Component {
+export default class Photo extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -16,7 +16,6 @@ export default class Gallery extends Component {
     this.colorStep = this.colorStep.bind(this)
     this.fetchPhotos = this.fetchPhotos.bind(this)
   }
-
   fetchPhotos() {
     this.props.pushLoading('gallery')
     fetch(flickrRoute).then(response => {
@@ -31,7 +30,7 @@ export default class Gallery extends Component {
          return photo
       })
       this.setState({photoData})
-      console.log(JSON.stringify(data, null, 4))
+      // console.log(JSON.stringify(data, null, 4))
       this.props.removeLoading('gallery')
     })
     .catch(err => {
@@ -42,11 +41,9 @@ export default class Gallery extends Component {
 
   componentWillMount() {
     this.fetchPhotos()
-
   }
   componentWillReceiveProps(prevProps, nextProps) {
-    // console.log('willreceiveprops' + JSON.stringify(prevProps, null, 4))
-    // this.fetchPhotos()
+
   }
 
   componentWillUnmount() {
@@ -71,9 +68,9 @@ export default class Gallery extends Component {
   }
   getCell(data, key) {
     let cellStyle = key == this.state.hoveredID ? { backgroundColor:'rgb(240, 236, 236)' } : {}
-    return <div style={{color:'white', maxWidth:'480px'}}>
+    return <div style={{color:'white', maxWidth:'480px'}} key={key}>
       { data.title != "" ? <div style={{marginTop:'10px', fontSize:'28px'}}> { data.title.toUpperCase() } </div> : null }
-      <img src={data.url} style={{ ...this.getColorStyle(this.state.color), ...cellStyle , ...{ margin:'10px 0px', maxWidth:'100%'}}} key={key} onClick={() => {
+      <img src={data.url} style={{ ...this.getColorStyle(this.state.color), ...cellStyle , ...{ margin:'10px 0px', maxWidth:'100%'}}} onClick={() => {
         this.setState({
           selectedImageIndex: key
         })
