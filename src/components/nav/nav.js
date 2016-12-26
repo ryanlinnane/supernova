@@ -10,19 +10,26 @@ export default class Nav extends Component {
   }
   render() {
     return (<div className={`${styles.leftPanel}`} ><div className={styles.about}>
-        <div style={{display:'flex', alignItems:'center', marginBottom:'5px'}}>
-          <div style={{marginRight:'3px', fontSize:'20px', fontWeight:'500', padding:'5px 2px 3px 2px', whiteSpace:'nowrap'}}>   &lt;RYAN LINNANE &#47;&gt;</div>
+        <div style={{display:'flex', alignItems:'center',  height:'55px'}}>
+          <div style={{marginLeft:'5px', marginRight:'3px', fontSize:'20px', fontWeight:'500', whiteSpace:'nowrap'}}>   &lt;RYAN LINNANE &#47;&gt;</div>
           {this.props.isLoading == false ? null : <img src={require('../../crazyLoading.gif')} style={{width:'30px'}}/>}
         </div>
         {/*left*/}
         {
           () => {
             const routes = ['ABOUT', 'PHOTO', 'VIDEO', 'RESUME', 'WRITING']
-            return routes.map(route => {
+            return routes.map((route, index) => {
               let style = {}
               if(route.toLowerCase() == this.props.routeID) {
-                style['backgroundColor'] = 'rgb(161, 161, 161)'
+                style['backgroundColor'] = 'rgb(32, 31, 31)'
               }
+              if(index == 0) {
+                style['borderStyle'] = 'solid none solid none'
+              }
+              else {
+                style['borderStyle'] = 'none none solid none'
+              }
+
               return <div key={route} className={styles.leftSelector} style={style} onClick={() => {
                 if(route.toLowerCase() == 'writing') {
                   window.open('https://ryanlinnane.github.io', '__blank')
