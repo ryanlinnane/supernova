@@ -18,6 +18,7 @@ import Video from './components/video/video'
 import About from './components/about/about'
 import Resume from './components/resume/resume'
 
+
 class Main extends Component{
   constructor(props) {
     super(props);
@@ -28,6 +29,17 @@ class Main extends Component{
     this.setRouteID = this.setRouteID.bind(this)
     this.pushLoading = this.pushLoading.bind(this)
     this.removeLoading = this.removeLoading.bind(this)
+    this.animateBG = this.animateBG.bind(this)
+  }
+
+  animateBG(backgroundPosition) {
+    requestAnimationFrame(() => {
+      let bgPos = backgroundPosition + 0.3
+      this.setState({
+        backgroundPosition: bgPos
+      })
+      this.animateBG(bgPos)
+    })
   }
 
   pushLoading(id) {
@@ -46,7 +58,7 @@ class Main extends Component{
   }
 
   componentDidMount() {
-
+    this.animateBG(0)
   }
 
   componentDidUpdate() { }
@@ -101,7 +113,7 @@ class Main extends Component{
             <a href='https://twitter.com/mysticantler' target='__blank' className={styles.icon} style={{flex:'1'}}> <img src={require('./public/images/white-social/twitter.png')} style={{width:'25px', opacity:'.8'}}/></a>
           </div>
         </div>
-        <div className={styles.rightPanel} style={{backgroundImage:`url(${require('./public/images/star2.png')})`}}>
+        <div className={styles.rightPanel} style={{backgroundImage:`url(${require('./public/images/star2.png')})`, backgroundPosition:`center ${this.state.backgroundPosition}px`}}>
           {
             () => {
               switch(this.state.routeID) {

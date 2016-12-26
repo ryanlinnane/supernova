@@ -6,9 +6,9 @@ export default class About extends Component {
     super(props)
     this.state = {
       messages: [
-        'Fullstack Engineer @ Austin Sigma',
+        'Fullstack Engineer',
         'Computer Science MS Canditate @ GATech',
-        'Food, Drink, Hack'
+        'Food, Drink, Hack',
       ],
       index: 0,
       intervalID: null,

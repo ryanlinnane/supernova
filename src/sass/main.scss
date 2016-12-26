@@ -37,15 +37,15 @@ html {
   -webkit-overflow-scrolling: touch;
   display:flex;
   flex-direction:column;
-  -webkit-animation: movebg 40s linear infinite;
-  animation: movebg 40s linear infinite;
+  // -webkit-animation: movebg 40s linear infinite;
+  // animation: movebg 40s linear infinite;
 }
 @keyframes movebg {
   from {
     background-position: center;
   }
   to {
-    background-position: center 1200px;
+    background-position: center 100vh;
   }
 }
 
