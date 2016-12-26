@@ -83,6 +83,7 @@ export default class Photo extends Component {
 
   render() {
     return <div className={styles.gallery}>
+    <div style={{backgroundColor:'red', position:'fixed', zIndex: '50000', left:'0px', top:'0px', width:'100vw', height:'100vh'}}> </div>
     <Modal selectedImage={this.state.photoData[this.state.selectedImageIndex]} onExit={() => {
       this.setState({
         selectedImageIndex: null
