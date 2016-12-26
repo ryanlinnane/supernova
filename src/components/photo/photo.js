@@ -48,10 +48,12 @@ export default class Photo extends Component {
 
   componentWillUnmount() {
     this.willUnmount = true
+    this.props.setWebkitScroll(true)
   }
   componentDidMount() {
     let colorGenerator = colorPulse([[0,0,0], [255,255,255],  [1, 167, 184], [34, 218, 212]])
     this.colorStep(colorGenerator)
+    this.props.setWebkitScroll(false)
   }
   colorStep(colorGenerator) {
     const { done, value } = colorGenerator.next()
