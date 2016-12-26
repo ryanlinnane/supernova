@@ -7,6 +7,8 @@ export default class Video extends Component {
   }
   render() {
     return <div className={styles.videoContainer}>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/6rI4QEeajCA" frameborder="0" allowfullscreen>
+      </iframe>
       <iframe style={{}}
         src="https://player.vimeo.com/video/196987303"
         width="640"
