@@ -37,6 +37,23 @@ html {
   -webkit-overflow-scrolling: touch;
   display:flex;
   flex-direction:column;
+  -webkit-animation: movebg 40s linear infinite;
+  animation: movebg 40s linear infinite;
+}
+@keyframes movebg {
+  from {
+    background-position: center;
+  }
+  to {
+    background-position: center 1200px;
+  }
+}
+
+div {
+  animation-duration: 0.1s;
+  animation-name: changewidth;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 .gallery {
