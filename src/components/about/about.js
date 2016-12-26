@@ -7,7 +7,7 @@ export default class About extends Component {
     this.state = {
       messages: [
         'Fullstack Engineer',
-        'Computer Science MS Canditate @ GATech',
+        'Computer Science MS Candidate @ GATech',
         'Food, Drink, Hack',
       ],
       index: 0,
