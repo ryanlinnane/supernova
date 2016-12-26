@@ -64,7 +64,7 @@ class Main extends Component{
   render(){
     return(
       <div className={styles.main}>
-        <div style={{backgroundColor:'red', position:'fixed', zIndex: '5', width:'100vw', height:'100vh'}}> </div>
+        {/* <div style={{backgroundColor:'red', position:'fixed', zIndex: '5', width:'100vw', height:'100vh'}}> </div> */}
         <Nav onRouteClick={(routeID) => {
             this.setRouteID(routeID)
           }}
