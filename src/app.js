@@ -95,7 +95,7 @@ class Main extends Component{
                 }()
               }
           </div>
-          <div style={{display:'flex', alignItems:'center', justifyContent:'space-around', maxWidth:'100%', minWidth:'210px', margin:'0px auto', padding:'5px 0px 0px 0px'}}>
+          <div style={{display:'flex', alignItems:'center', justifyContent:'space-around', maxWidth:'100%', minWidth:'210px', margin:'0px auto 4px auto', padding:'5px 0px 0px 0px'}}>
             <a href='https://github.com/ryanlinnane' target='__blank' className={styles.icon}> <img src={require('./public/images/white-social/github.png')} style={{width:'25px', opacity:'.8'}}/></a>
             <a href='https://www.linkedin.com/in/linnaneryan' target='__blank' className={styles.icon}> <img src={require('./public/images/white-social/linkedin.png')} style={{width:'25px', opacity:'.8'}}/></a>
             <a href='https://medium.com/@Leef' target='__blank' className={styles.icon}> <img src={require('./public/images/white-social/medium.png')} style={{width:'25px', opacity:'.8'}}/></a>
