@@ -4,6 +4,8 @@
   align-items: center;
   flex-direction:column;
   overflow-y: auto;
+  overflow-x:hidden;
+
 }
 
 .videoContainer iframe {
