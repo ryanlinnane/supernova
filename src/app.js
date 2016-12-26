@@ -14,7 +14,10 @@ import Photo from './components/photo/photo'
 import Video from './components/video/video'
 import About from './components/about/about'
 import Resume from './components/resume/resume'
+import Nav from './components/nav/nav'
+
 import styles from './app.scss';
+
 
 
 
@@ -72,41 +75,12 @@ class Main extends Component{
 
     return(
       <div className={styles.main}>
-        <div className={`${styles.leftPanel}`} >
-          <div className={styles.about}>
-              <div style={{display:'flex', alignItems:'center', marginBottom:'5px'}}>
-                <div style={{marginRight:'3px', fontSize:'20px', fontWeight:'500', padding:'5px 2px 3px 2px', whiteSpace:'nowrap'}}>   &lt;RYAN LINNANE &#47;&gt;</div>
-                {this.state.loadingIDs.length == 0 ? null : <img src={require('./crazyLoading.gif')} style={{width:'30px'}}/>}
-              </div>
-              {/*left*/}
-              {
-                () => {
-                  const routes = ['ABOUT', 'PHOTO', 'VIDEO', 'RESUME', 'WRITING']
-                  return routes.map(route => {
-                    let style = {}
-                    if(route.toLowerCase() == this.state.routeID) {
-                      style['backgroundColor'] = 'rgb(161, 161, 161)'
-                    }
-                    return <div key={route} className={styles.leftSelector} style={style} onClick={() => {
-                      if(route.toLowerCase() == 'writing') {
-                        window.open('https://ryanlinnane.github.io', '__blank')
-                        return
-                      }
-                      this.setRouteID(route)
-                    }}>
-                      {route}
-                    </div>
-                  })
-                }()
-              }
-          </div>
-          <div style={{display:'flex', alignItems:'center', justifyContent:'space-around', maxWidth:'100%', minWidth:'210px', margin:'0px auto 4px auto', padding:'5px 0px 0px 0px'}}>
-            <a href='https://github.com/ryanlinnane' target='__blank' className={styles.icon} style={{flex:'1'}}> <img src={require('./public/images/white-social/github.png')} style={{width:'25px', opacity:'.8'}}/></a>
-            <a href='https://www.linkedin.com/in/linnaneryan' target='__blank' className={styles.icon} style={{flex:'1'}}> <img src={require('./public/images/white-social/linkedin.png')} style={{width:'25px', opacity:'.8'}}/></a>
-            <a href='https://medium.com/@Leef' target='__blank' className={styles.icon} style={{flex:'1'}}> <img src={require('./public/images/white-social/medium.png')} style={{width:'25px', opacity:'.8'}}/></a>
-            <a href='https://twitter.com/mysticantler' target='__blank' className={styles.icon} style={{flex:'1'}}> <img src={require('./public/images/white-social/twitter.png')} style={{width:'25px', opacity:'.8'}}/></a>
-          </div>
-        </div>
+        <Nav onRouteClick={(routeID) => {
+            this.setRouteID(routeID)
+          }}
+          routeID={this.state.routeID}
+          isLoading={this.state.loadingIDs.length > 0}
+        />
         <div className={styles.rightPanel} style={{backgroundImage:`url(${require('./public/images/star2.png')})`, backgroundPosition:`center ${this.state.backgroundPosition}px`}}>
           {
             () => {
