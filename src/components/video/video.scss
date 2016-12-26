@@ -5,9 +5,7 @@
   justify-content:center;
   align-tems:center;
   flex: 1 0 auto;
-  * {
-      -webkit-overflow-scrolling: touch
-  }
+
 }
 
 .videoContainer iframe {
@@ -15,6 +13,7 @@
   max-width: 650px;
   max-height: 400px;
   margin:0px auto 15px auto;
+  overflow:hidden;
 }
 .videoContainer iframe:nth-child(1) {
   margin-top:15px;
