@@ -11,9 +11,7 @@
 .about {
   overflow-y: auto;
   z-index:1;
-  // background-color: rgba(255, 255, 255, 0.15);
   position: relative;
-  // top: 20px
   color:white;
   overflow-x:hidden;
 }
@@ -22,7 +20,7 @@
 .leftSelector {
   font-size:18px;
   cursor: pointer;
-  padding:5px 0px 5px 10px;
+  padding:10px 0px 10px 5px;
   border: 1px rgb(27, 27, 27);
 }
 
@@ -69,6 +67,7 @@
   .leftSelector {
     // padding: 4px 0;
     // padding:4px 0px 4px 20px
+    padding:7px 0px 7px 5px;
 
   }
 }
