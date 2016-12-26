@@ -27,7 +27,10 @@ html {
   overflow-y: auto;
   display:flex;
   flex-direction:column;
-  // -webkit-overflow-scrolling:touch;
+
+}
+* {
+  -webkit-overflow-scrolling:touch;
 
 }
 
