@@ -1,18 +1,19 @@
 .videoContainer {
-  color:black;
+  flex: 1;
   display:flex;
+  align-items: center;
   flex-direction:column;
-  justify-content:center;
-  align-tems:center;
-  flex: 1 0 auto;
+  overflow-y: auto;
 }
 
 .videoContainer iframe {
   width: 100%;
   max-width: 650px;
   max-height: 400px;
-  margin:0px auto 15px auto;
+  margin-bottom:15px;
   overflow:hidden;
+  // flex-shrink:0;
+  flex: 0 0 auto;
 }
 .videoContainer iframe:nth-child(1) {
   margin-top:15px;

@@ -6,6 +6,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x:auto;
+  overflow-y: hidden;
 }
 html {
   margin: 0;
@@ -24,7 +25,7 @@ html {
   background-color: rgba(#252525, 0.34);
   flex: 1 0 auto;
   color:black;
-  overflow-y: auto;
+  overflow-y: hidden;
   display:flex;
   flex-direction:column;
 }
