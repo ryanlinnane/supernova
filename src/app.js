@@ -30,7 +30,6 @@ class Main extends Component{
     this.pushLoading = this.pushLoading.bind(this)
     this.removeLoading = this.removeLoading.bind(this)
     this.animateBG = this.animateBG.bind(this)
-    this.setWebkitScroll = this.setWebkitScroll.bind(this)
   }
   animateBG(backgroundPosition) {
     requestAnimationFrame(() => {
@@ -53,11 +52,7 @@ class Main extends Component{
   }
   componentWillMount() {
   }
-  setWebkitScroll(isOn) {
-    this.setState({
-      webkitScrollOn: isOn
-    })
-  }
+
 
   componentDidMount() {
     this.animateBG(0)
@@ -73,9 +68,7 @@ class Main extends Component{
       backgroundImage:`url(${require('./public/images/star2.png')})`,
       backgroundPosition:`center ${this.state.backgroundPosition}px`
     }
-    if(this.state.webkitScrollOn) {
-      rightContentStyles['-webkit-overflow-scrolling'] = 'touch'
-    }
+
     return(
       <div className={styles.main}>
         {/* <div style={{backgroundColor:'red', position:'fixed', zIndex: '5', width:'100vw', height:'100vh'}}> </div> */}
@@ -92,7 +85,7 @@ class Main extends Component{
             () => {
               switch(this.state.routeID) {
                 case 'photo':
-                  return <Photo removeLoading={this.removeLoading} pushLoading={this.pushLoading} setWebkitScroll={this.setWebkitScroll}/>
+                  return <Photo removeLoading={this.removeLoading} pushLoading={this.pushLoading}/>
                 case 'video':
                   return <Video />
                 return
