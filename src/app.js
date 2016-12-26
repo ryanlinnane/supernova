@@ -18,9 +18,6 @@ import Nav from './components/nav/nav'
 
 import styles from './app.scss';
 
-
-
-
 class Main extends Component{
   constructor(props) {
     super(props);
@@ -33,7 +30,6 @@ class Main extends Component{
     this.removeLoading = this.removeLoading.bind(this)
     this.animateBG = this.animateBG.bind(this)
   }
-
   animateBG(backgroundPosition) {
     requestAnimationFrame(() => {
       let bgPos = backgroundPosition + 0.3
@@ -43,7 +39,6 @@ class Main extends Component{
       this.animateBG(bgPos)
     })
   }
-
   pushLoading(id) {
     this.setState({
       loadingIDs: [...this.state.loadingIDs, id]
@@ -54,25 +49,19 @@ class Main extends Component{
       loadingIDs: this.state.loadingIDs.filter(lID => lID != id)
     })
   }
-
   componentWillMount() {
-
   }
 
   componentDidMount() {
     this.animateBG(0)
   }
-
   componentDidUpdate() { }
-
   setRouteID(id) {
     this.setState({
       routeID: id.toLowerCase()
     })
   }
-
   render(){
-
     return(
       <div className={styles.main}>
         <Nav onRouteClick={(routeID) => {
@@ -81,12 +70,17 @@ class Main extends Component{
           routeID={this.state.routeID}
           isLoading={this.state.loadingIDs.length > 0}
         />
-        <div className={styles.rightPanel} style={{backgroundImage:`url(${require('./public/images/star2.png')})`, backgroundPosition:`center ${this.state.backgroundPosition}px`}}>
+        <div className={styles.rightContent}
+          style={{
+            backgroundImage:`url(${require('./public/images/star2.png')})`,
+            backgroundPosition:`center ${this.state.backgroundPosition}px`
+          }}
+        >
           {
             () => {
               switch(this.state.routeID) {
                 case 'photo':
-                  return <Photo removeLoading={this.removeLoading} pushLoading={this.pushLoading}/>
+                  return <Photo removeLoading={this.removeLoading} pushLoading={this.pushLoading} />
                 case 'video':
                   return <Video />
                 return

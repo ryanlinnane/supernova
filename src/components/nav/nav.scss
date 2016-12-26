@@ -1,0 +1,71 @@
+.leftPanel {
+  background-color:#333333;
+  color: #AEBFCE;
+  position: relative;
+  display:flex;
+  flex-direction:column;
+  justify-content: space-between;
+  width:230px;
+}
+
+.about {
+  overflow-y: auto;
+  // z-index:0;
+  background-color: rgba(255, 255, 255, 0.15);
+  position: relative;
+  top: 20px;
+  color:white;
+  overflow-x:hidden;
+}
+
+
+.leftSelector {
+  font-size:18px;
+  cursor: pointer;
+  padding:5px 0px 5px 20px
+}
+.leftSelector:hover {
+  background-color: rgba(59, 52, 52, 0.81);
+}
+
+.icon {
+  padding:5px;
+  border-radius: 5px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon:hover {
+  background-color:rgb(147, 147, 147);
+}
+
+
+
+
+//flexs my right content on small screens
+@media (max-width: 767px) {
+
+  .leftPanel {
+    background-color:#333333;
+    color: #AEBFCE;
+    flex:0 0 auto;
+    position: relative;
+    overflow:hidden;
+    max-width: none;
+    padding: 0px 0px;
+    width:100%;
+  }
+
+  .about {
+    position:relative;
+    top:auto;
+    width:auto;
+    // left:auto;
+    width:100%;
+  }
+  .leftSelector {
+    padding: 4px 0;
+    padding:4px 0px 4px 20px
+
+  }
+}

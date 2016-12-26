@@ -15,8 +15,27 @@
   max-width:700px;
   overflow-y:hideen;
 }
-
-
+.centerText {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align:center;
+  position: absolute;
+  left:5px;
+  right:5px;
+  bottom:0px;
+  top:0px;
+}
+.cardIndex {
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+  opacity:0.5;
+  position: absolute;
+  bottom: 10px;
+  left: 0px;
+  right: 0px;
+}
 
 @media (max-width: 767px) {
   .container {
@@ -24,18 +43,3 @@
     min-width:auto;
   }
 }
-
-
-
-
-//
-// .text {
-//     opacity: 1;
-//     animation: fade 3s linear infinite;
-// }
-//
-//
-// @keyframes fade {
-//   0%,100% { opacity: 0 }
-//   50% { opacity: 1 }
-// }

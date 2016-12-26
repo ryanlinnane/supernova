@@ -22,7 +22,6 @@ export default class Modal extends Component {
         break;
     }
   }
-
   componentDidMount() {
     window.addEventListener('keydown', (e) => this.handleKey.call(this, e))
   }
