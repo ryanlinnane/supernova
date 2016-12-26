@@ -16,6 +16,7 @@ const flickrRoute = 'https://api.flickr.com/services/rest/?method=flickr.people.
 import Gallery from './components/gallery/gallery'
 import Video from './components/video/video'
 import About from './components/about/about'
+import Resume from './components/resume/resume'
 
 class Main extends Component{
   constructor(props) {
@@ -81,10 +82,10 @@ class Main extends Component{
                         window.open('https://ryanlinnane.github.io', '__blank')
                         return
                       }
-                      else if(route.toLowerCase() == 'resume') {
-                        window.open('http://static.awhoof.com/Linnane_Ryan_Resume.pdf', '__blank')
-                        return
-                      }
+                      // else if(route.toLowerCase() == 'resume') {
+                      //   window.open('http://static.awhoof.com/Linnane_Ryan_Resume.pdf', '__blank')
+                      //   return
+                      // }
                       this.setRouteID(route)
                     }}>
                       {route}
@@ -113,6 +114,8 @@ class Main extends Component{
                 return
                 case 'about':
                   return <About />
+                case 'resume':
+                  return <Resume />
                 default:
                   return null
               }
