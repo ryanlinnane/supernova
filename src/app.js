@@ -1,22 +1,21 @@
 /**
  * Created by MagicAntler on 10/14/15.
  */
-import React from "react";
-let { Component } = React;
-import styles from './sass/main.scss';
+import React, { Component } from "react";
+import 'whatwg-fetch'
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { connect } from 'react-redux';
 import reducer from './reducers/index.js';
 import { render } from 'react-dom'
+
 import colorPulse from './lib/color'
-import Modal from './components/modal/modal'
-import 'whatwg-fetch'
-const flickrRoute = 'https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=24084cab33ca5e8de996a7c9d393d81b&user_id=133508911%40N08&format=json&nojsoncallback=1&api_sig=b554f59fb31caf59f377674d840cb9d1'
-import Gallery from './components/gallery/gallery'
+import Photo from './components/photo/photo'
 import Video from './components/video/video'
 import About from './components/about/about'
 import Resume from './components/resume/resume'
+import styles from './sass/main.scss';
+
 
 
 class Main extends Component{
@@ -118,7 +117,7 @@ class Main extends Component{
             () => {
               switch(this.state.routeID) {
                 case 'photo':
-                  return <Gallery removeLoading={this.removeLoading} pushLoading={this.pushLoading}/>
+                  return <Photo removeLoading={this.removeLoading} pushLoading={this.pushLoading}/>
                 case 'video':
                   return <Video />
                 return

@@ -1,7 +1,7 @@
-import styles from './gallery.scss'
+import styles from './photo.scss'
 import React, { Component } from 'react'
 import colorPulse from '../../lib/color'
-import Modal from '../modal/modal'
+import Modal from './modal/modal'
 const flickrRoute = 'https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=d41e0adfda7ef838087d4005ec9c4163&user_id=133508911%40N08&format=json&nojsoncallback=1'
 
 
