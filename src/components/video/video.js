@@ -7,12 +7,13 @@ export default class Video extends Component {
   }
   render() {
     return <div className={styles.videoContainer}>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/6rI4QEeajCA" frameborder="0" allowfullscreen>
+      <iframe width="560" scrolling="no" height="315" src="https://www.youtube.com/embed/6rI4QEeajCA" frameborder="0" allowfullscreen>
       </iframe>
       <iframe style={{}}
         src="https://player.vimeo.com/video/196987303"
         width="640"
         height="360"
+        scrolling="no"
         frameborder="0"
         webkitallowfullscreen mozallowfullscreen allowfullscreen>
       </iframe>
@@ -20,20 +21,7 @@ export default class Video extends Component {
         width="640"
         height="360"
         frameborder="0"
-        webkitallowfullscreen mozallowfullscreen allowfullscreen>
-      </iframe>
-
-      <iframe style={{}}
-        src="https://player.vimeo.com/video/196987303"
-        width="640"
-        height="360"
-        frameborder="0"
-        webkitallowfullscreen mozallowfullscreen allowfullscreen>
-      </iframe>
-      <iframe src="https://player.vimeo.com/video/135618601"
-        width="640"
-        height="360"
-        frameborder="0"
+        scrolling="no"
         webkitallowfullscreen mozallowfullscreen allowfullscreen>
       </iframe>
     </div>
