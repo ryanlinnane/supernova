@@ -7,7 +7,6 @@ export default class Modal extends Component {
   }
 
   handleKey(e) {
-    console.log(e.keyCode)
     switch(e.keyCode) {
       case 37:
         this.props.onPrev()
@@ -23,10 +22,10 @@ export default class Modal extends Component {
     }
   }
   componentDidMount() {
-    window.addEventListener('keydown', (e) => this.handleKey.call(this, e))
+    window.addEventListener('keydown', this.handleKey.bind(this))
   }
   componentWillUnmount() {
-    window.removeEventListener('keydown', this.handleKey)
+    window.removeEventListener('keydown', this.handleKey.bind(this))
   }
   render() {
     if(this.props.selectedImage == null) {
