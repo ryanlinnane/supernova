@@ -64,11 +64,13 @@ export default class Nav extends Component {
                 style['backgroundColor'] = 'rgb(32, 31, 31)'
               }
               if(index == 0) {
-                style['borderStyle'] = 'solid none solid none'
+                // style['borderStyle'] = 'solid none solid none'
               }
               else {
-                style['borderStyle'] = 'none none solid none'
+                // style['borderStyle'] = 'none none solid none'
               }
+
+
 
               return <div key={route} style={style} className={styles.leftSelector} onClick={() => {
                 if(route.toLowerCase() == 'writing') {
