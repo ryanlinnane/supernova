@@ -42,9 +42,7 @@ export default class Video extends Component {
         scrolling="no"
         webkitallowfullscreen mozallowfullscreen allowfullscreen>
       </iframe>
-      {
-        this.state.didLoad ? <Scroll container={this.topFrame}/> : null
-      }
+        { this.state.didLoad ? <Scroll container={this.topFrame}/> : null }
     </div>
   }
 }
