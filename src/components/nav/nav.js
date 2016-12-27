@@ -23,6 +23,7 @@ export default class Nav extends Component {
             this.setState({
               showRoutes: !this.state.showRoutes
             })
+            return true
           }}/>
         </div>
 
