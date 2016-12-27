@@ -5,17 +5,19 @@
   flex-direction:column;
   overflow-y: auto;
   overflow-x:hidden;
-
+-webkit-overflow-scrolling: touch;
+  // height:0px;
 }
 
 .videoContainer iframe {
   width: 100%;
-  // // height:100%;
+  // height:100%;
   max-width: 620px;
   // max-height: 1000px;
   margin-bottom:15px;
   overflow:hidden;
   // flex-shrink:1;
+
   flex: 0 0 auto;
 }
 .videoContainer iframe:nth-child(1) {
