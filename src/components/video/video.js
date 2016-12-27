@@ -1,13 +1,23 @@
 import React, { Component } from 'react'
 import styles from './video.scss'
+import Scroll from '../scroll'
 
 export default class Video extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      didLoad: false
+    }
   }
   render() {
-    return <div className={styles.videoContainer}>
-      <iframe width="560" scrolling="no" height="360" src="https://www.youtube.com/embed/6rI4QEeajCA" frameborder="0" allowfullscreen>
+    return <div className={styles.videoContainer} ref={(r) => this.topFrame = r}>
+      <iframe
+        onLoad={() => {
+          this.setState({
+            didLoad: true
+          })
+        }}
+        width="560" scrolling="no" height="360" src="https://www.youtube.com/embed/6rI4QEeajCA" frameborder="0" allowfullscreen>
       </iframe>
       <iframe style={{}}
         src="https://player.vimeo.com/video/196987303"
@@ -24,6 +34,9 @@ export default class Video extends Component {
         scrolling="no"
         webkitallowfullscreen mozallowfullscreen allowfullscreen>
       </iframe>
+      {
+        this.state.didLoad ? <Scroll container={this.topFrame}/> : null
+      }
     </div>
   }
 }

@@ -6,13 +6,3 @@
   flex-direction:column;
   overflow-y: auto;
 }
-
-.grow {
-  -webkit-transition: width 1s; /* Safari */
-  transition: width 1s;
-  width:30px;
-}
-
-.grow:hover {
-  width: 38px;
-}

@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import colorPulse from '../../lib/color'
 import Modal from './modal/modal'
 const flickrRoute = 'https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=d41e0adfda7ef838087d4005ec9c4163&user_id=133508911%40N08&format=json&nojsoncallback=1'
-
+import Scroll from '../scroll'
 
 export default class Photo extends Component {
   constructor(props) {
@@ -104,15 +104,7 @@ export default class Photo extends Component {
     }
     {
       this.state.photoData.length > 0 ? (
-        <a onClick={() => {
-        if(window.innerWidth >= 767) {
-          this.container.scrollTop = 0
-        } else {
-           window.scrollTo(0,0)
-        }
-      }}
-      style={{width:'50px', height:'40px', display:'flex', flex:'0 0 auto', justifyContent:'center', alignItems:'center'}}
-      >{ <img src={require('./double_up.png')} className={styles.grow}/> }</a>
+        <Scroll container={this.container}/>
     ) : null
 
     }
