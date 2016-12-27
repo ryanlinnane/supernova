@@ -82,7 +82,7 @@ export default class Photo extends Component {
   }
 
   render() {
-    return <div className={styles.gallery}>
+    return <div className={styles.gallery} ref={(ref) => this.container = ref}>
     <Modal selectedImage={this.state.photoData[this.state.selectedImageIndex]} onExit={() => {
       this.setState({
         selectedImageIndex: null
@@ -102,11 +102,18 @@ export default class Photo extends Component {
     {
       this.state.photoData.map((data, index) => this.getCell(data, index))
     }
-    {/*
-    <div onClick={() => {
-      window.scrollTo(500,0)
-    }}>Scroll To Top</div>
-    */}
+    {
+      this.state.photoData.length > 0 ? (
+        <a onClick={() => {
+        if(window.innerWidth >= 767) {
+          this.container.scrollTop = 0
+        } else {
+           window.scrollTo(0,0)
+        }
+      }}>Scroll To Top</a>
+    ) : null
+
+    }
     </div>
 
   }

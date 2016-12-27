@@ -2,6 +2,13 @@
 * {
   font-family:'Avenir', sans-serif;
 }
+a {
+  color:white;
+  cursor: pointer;
+}
+a:hover {
+  color: rgb(189, 189, 189)
+}
 body {
   margin: 0;
   padding: 0;
