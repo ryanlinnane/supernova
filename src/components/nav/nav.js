@@ -5,21 +5,43 @@ export default class Nav extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      loadingIDs: []
+      loadingIDs: [],
+      showRoutes: false
     }
   }
   render() {
-    return (<div className={`${styles.leftPanel}`} ><div className={styles.about}>
-        <div style={{display:'flex', alignItems:'center',  height:'55px'}}>
-          <div style={{paddingLeft: '5px', marginRight:'3px', fontSize:'20px', fontWeight:'500', whiteSpace:'nowrap'}}>   &lt;RYAN LINNANE &#47;&gt;</div>
+    return (<div className={`${styles.leftPanel}`} >
+      <div style={{display:'flex', alignItems:'center',  height:'55px', flex:'0 0 auto', justifyContent:'space-between'}}>
+        <div style={{display:'flex', height:'100%', alignItems:'center'}}>
+          <div style={{color:'white', paddingLeft: '5px', marginRight:'3px', fontSize:'20px', fontWeight:'500', whiteSpace:'nowrap'}}>
+             &lt;RYAN LINNANE &#47;&gt;
+           </div>
           {this.props.isLoading == false ? null : <img src={require('../../crazyLoading.gif')} style={{width:'30px'}}/>}
         </div>
+        <div>
+          <img src={require('./angle_down.png')} style={{width:'30px', marginRight:'10px'}} className={`${styles.mobileOnly} ${styles.button}`} onClick={() => {
+            this.setState({
+              showRoutes: !this.state.showRoutes
+            })
+          }}/>
+        </div>
+
+      </div>
+      <div className={styles.about}>
+
         {/*left*/}
         {
           () => {
+            // console.log('window ' + )
             const routes = ['ABOUT', 'PHOTO', 'VIDEO', 'RESUME', 'WRITING']
             return routes.map((route, index) => {
               let style = {}
+              if(this.state.showRoutes == true || window.innerWidth >= 767) {
+                style['display'] = 'block'
+              }
+              else {
+                style['display'] = 'none'
+              }
               if(route.toLowerCase() == this.props.routeID) {
                 style['backgroundColor'] = 'rgb(32, 31, 31)'
               }
@@ -30,7 +52,7 @@ export default class Nav extends Component {
                 style['borderStyle'] = 'none none solid none'
               }
 
-              return <div key={route} className={styles.leftSelector} style={style} onClick={() => {
+              return <div key={route} style={style} className={styles.leftSelector} onClick={() => {
                 if(route.toLowerCase() == 'writing') {
                   window.open('https://ryanlinnane.github.io', '__blank')
                   return
