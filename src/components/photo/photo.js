@@ -35,7 +35,7 @@ export default class Photo extends Component {
     })
     .catch(err => {
       console.error(err)
-      this.props.removeLoading('gallery')
+      // this.props.removeLoading('gallery')
     })
   }
 

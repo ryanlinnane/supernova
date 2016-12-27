@@ -23,8 +23,7 @@ class Main extends Component{
     super(props);
     this.state = {
       routeID: 'about',
-      loadingIDs: [],
-      webkitScrollOn: true
+      loadingIDs: []
     }
     this.setRouteID = this.setRouteID.bind(this)
     this.pushLoading = this.pushLoading.bind(this)
@@ -42,7 +41,7 @@ class Main extends Component{
   }
   pushLoading(id) {
     this.setState({
-      loadingIDs: [...this.state.loadingIDs, id]
+      loadingIDs: [...this.state.loadingIDs.slice(), id]
     })
   }
   removeLoading(id) {
@@ -50,17 +49,16 @@ class Main extends Component{
       loadingIDs: this.state.loadingIDs.filter(lID => lID != id)
     })
   }
-  componentWillMount() {
+  componentWillMount() { }
+  componentWillUpdate(nextProps, nextState) {
   }
-
-
   componentDidMount() {
     this.animateBG(0)
   }
-  componentDidUpdate() { }
   setRouteID(id) {
     this.setState({
-      routeID: id.toLowerCase()
+      routeID: id.toLowerCase(),
+      loadingIDs: []
     })
   }
   render(){
@@ -68,10 +66,8 @@ class Main extends Component{
       backgroundImage:`url(${require('./public/images/star2.png')})`,
       backgroundPosition:`center ${this.state.backgroundPosition}px`
     }
-
     return(
       <div className={styles.main}>
-        {/* <div style={{backgroundColor:'red', position:'fixed', zIndex: '5', width:'100vw', height:'100vh'}}> </div> */}
         <Nav onRouteClick={(routeID) => {
             this.setRouteID(routeID)
           }}

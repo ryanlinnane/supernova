@@ -11,9 +11,12 @@ export default class Video extends Component {
   }
   componentWillUnmount() {
     this.didUnmount = true
+    this.props.removeLoading('video')
+
   }
   componentDidMount() {
     this.didUnmount = false
+    this.props.pushLoading('video')
   }
   render() {
     return <div className={styles.videoContainer} ref={(r) => this.topFrame = r}>
@@ -23,6 +26,7 @@ export default class Video extends Component {
             this.setState({
               didLoad: true
             })
+            this.props.removeLoading('video')
           }
         }}
         width="560" scrolling="no" height="360" src="https://www.youtube.com/embed/6rI4QEeajCA" frameborder="0" allowfullscreen>
