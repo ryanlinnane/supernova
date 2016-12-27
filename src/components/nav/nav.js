@@ -24,12 +24,10 @@ export default class Nav extends Component {
     if(mobileAndTabletcheck(window)) {
       return
     }
-    console.log('handling resize')
     this.setState({
       innerWidth: window.innerWidth
     })
   }
-
   render() {
     return (<div className={`${styles.leftPanel}`} >
       <div style={{display:'flex', alignItems:'center',  height:'55px', flex:'0 0 auto', justifyContent:'space-between'}}>
@@ -47,10 +45,8 @@ export default class Nav extends Component {
             return true
           }}/>
         </div>
-
       </div>
       <div className={styles.about}>
-
         {/*left*/}
         {
           () => {
