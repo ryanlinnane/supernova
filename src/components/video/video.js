@@ -29,6 +29,11 @@ export default class Video extends Component {
             this.props.removeLoading('video')
           }
         }}
+        onError={() => {
+          if(this.didUnmount == false) {
+            this.props.removeLoading('video')
+          }
+        }}
         width="560" scrolling="no" height="360" src="https://www.youtube.com/embed/6rI4QEeajCA" frameborder="0" allowfullscreen>
       </iframe>
       <iframe style={{}}
