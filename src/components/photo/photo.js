@@ -104,13 +104,13 @@ export default class Photo extends Component {
     }
     {
       this.state.photoData.length > 0 ? (
-        <a onClick={() => {
+        <a  onClick={() => {
         if(window.innerWidth >= 767) {
           this.container.scrollTop = 0
         } else {
            window.scrollTo(0,0)
         }
-      }}>Scroll To Top</a>
+      }}>{ <img src={require('./double_up.png')} className={styles.grow}/> }</a>
     ) : null
 
     }
