@@ -2,13 +2,7 @@
 * {
   font-family:'Avenir', sans-serif;
 }
-a {
-  color:white;
-  cursor: pointer;
-}
-a:hover {
-  color: rgb(189, 189, 189)
-}
+
 body {
   margin: 0;
   padding: 0;
@@ -20,6 +14,36 @@ html {
   padding: 0;
   height:100%;
 }
+a {
+  color:white;
+  cursor: pointer;
+}
+a:hover {
+  color: rgb(189, 189, 189)
+}
+
+::-webkit-scrollbar              { /* 1 */ }
+::-webkit-scrollbar-button       { /* 2 */ }
+::-webkit-scrollbar-track        { /* 3 */ }
+::-webkit-scrollbar-track-piece  { /* 4 */ }
+::-webkit-scrollbar-thumb        { /* 5 */ }
+::-webkit-scrollbar-corner       { /* 6 */ }
+::-webkit-resizer                { /* 7 */ }
+::-webkit-scrollbar {
+    width: 12px;
+    background-color:rgba(102, 102, 102, 0.5);
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 0 10px black;
+}
+
 .main {
   width:100%;
   height:100%;
