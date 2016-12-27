@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styles from './nav.scss'
+import animate from '../../sass/animate.scss'
 
 export default class Nav extends Component {
   constructor(props) {
@@ -67,7 +68,7 @@ export default class Nav extends Component {
         }
     </div>
     <div style={{display:'flex', alignItems:'center', justifyContent:'space-around',maxWidth:'100%', minWidth:'210px', padding:'2px 0px'}}>
-      <a href='https://github.com/ryanlinnane' target='__blank' className={styles.icon} style={{flex:'0 0 auto', height:'30px'}}> <img src={require('./icons/github.png')} style={{width:'25px', opacity:'.8', padding:'2px'}}/></a>
+      <a href='https://github.com/ryanlinnane' target='__blank' className={`${styles.icon}`} style={{flex:'0 0 auto', height:'30px'}}> <img src={require('./icons/github.png')} style={{width:'25px', opacity:'.8', padding:'2px'}} className={animate.row}/></a>
       <a href='https://www.linkedin.com/in/linnaneryan' target='__blank' className={styles.icon} style={{flex:'0 0 auto'}}> <img src={require('./icons/linkedin.png')} style={{width:'25px', opacity:'.8', padding:'2px'}}/></a>
       <a href='https://medium.com/@Leef' target='__blank' className={styles.icon} style={{flex:'0 0 auto'}}> <img src={require('./icons/medium.png')} style={{width:'25px', opacity:'.8', padding:'2px'}}/></a>
       <a href='https://twitter.com/mysticantler' target='__blank' className={styles.icon} style={{flex:'0 0 auto'}}> <img src={require('./icons/twitter.png')} style={{width:'25px', opacity:'.8', padding:'2px'}}/></a>

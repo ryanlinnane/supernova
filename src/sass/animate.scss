@@ -1,0 +1,12 @@
+@mixin grow($width) {
+    -webkit-transition: width 1s; /* Safari */
+    transition: width 1s;
+    width: $width;
+}
+
+.grow {
+  @include grow(30)
+}
+.grow:hover {
+  width: 38px;
+}
