@@ -7,9 +7,26 @@ export default class Nav extends Component {
     super(props)
     this.state = {
       loadingIDs: [],
-      showRoutes: false
+      showRoutes: false,
+      innerWidth: window.innerWidth
     }
+    this.handleResize = this.handleResize.bind(this)
   }
+  componentWillMount() {
+    window.addEventListener('resize', this.handleResize)
+
+  }
+  componentWillUmount() {
+    window.removeEventListener('resize', this.handleResize)
+
+  }
+  handleResize() {
+    console.log('handling resize')
+    this.setState({
+      innerWidth: window.innerWidth
+    })
+  }
+
   render() {
     return (<div className={`${styles.leftPanel}`} >
       <div style={{display:'flex', alignItems:'center',  height:'55px', flex:'0 0 auto', justifyContent:'space-between'}}>
@@ -38,7 +55,7 @@ export default class Nav extends Component {
             const routes = ['ABOUT', 'PHOTO', 'VIDEO', 'RESUME', 'WRITING']
             return routes.map((route, index) => {
               let style = {}
-              if(this.state.showRoutes == true || window.innerWidth >= 767) {
+              if(this.state.showRoutes == true || this.state.innerWidth >= 767) {
                 style['display'] = 'block'
               }
               else {
@@ -67,8 +84,8 @@ export default class Nav extends Component {
           }()
         }
     </div>
-    <div style={{display:'flex', alignItems:'center', justifyContent:'space-around',maxWidth:'100%', minWidth:'210px', padding:'2px 0px'}}>
-      <a href='https://github.com/ryanlinnane' target='__blank' className={`${styles.icon}`} style={{flex:'0 0 auto', height:'30px'}}> <img src={require('./icons/github.png')} style={{width:'25px', opacity:'.8', padding:'2px'}} className={animate.row}/></a>
+    <div style={{display:'flex', alignItems:'center', justifyContent:'space-around', maxWidth:'100%', minWidth:'210px', padding:'2px 0px'}}>
+      <a href='https://github.com/ryanlinnane' target='__blank' className={`${styles.icon}`} style={{flex:'0 0 auto'}}> <img src={require('./icons/github.png')} style={{width:'25px', opacity:'.8', padding:'2px'}} className={animate.row}/></a>
       <a href='https://www.linkedin.com/in/linnaneryan' target='__blank' className={styles.icon} style={{flex:'0 0 auto'}}> <img src={require('./icons/linkedin.png')} style={{width:'25px', opacity:'.8', padding:'2px'}}/></a>
       <a href='https://medium.com/@Leef' target='__blank' className={styles.icon} style={{flex:'0 0 auto'}}> <img src={require('./icons/medium.png')} style={{width:'25px', opacity:'.8', padding:'2px'}}/></a>
       <a href='https://twitter.com/mysticantler' target='__blank' className={styles.icon} style={{flex:'0 0 auto'}}> <img src={require('./icons/twitter.png')} style={{width:'25px', opacity:'.8', padding:'2px'}}/></a>
