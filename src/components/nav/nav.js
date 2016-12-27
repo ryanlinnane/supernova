@@ -33,7 +33,7 @@ export default class Nav extends Component {
       <div style={{display:'flex', alignItems:'center',  height:'55px', flex:'0 0 auto', justifyContent:'space-between'}}>
         <div style={{display:'flex', height:'100%', alignItems:'center'}}>
           <div style={{color:'white', paddingLeft: '5px', marginRight:'3px', fontSize:'20px', fontWeight:'500', whiteSpace:'nowrap'}}>
-             &lt;RYAN LINNANE &#47;&gt;
+             <h1> {/*&lt;*/}RYAN LINNANE  {/* &#47;&gt; */}</h1>
            </div>
           {this.props.isLoading == false ? null : <img src={require('../../crazyLoading.gif')} style={{width:'30px'}}/>}
         </div>
