@@ -8,7 +8,7 @@ export default class About extends Component {
       messages: [
         'Fullstack Engineer',
         'Computer Science MS Candidate @ GATech',
-        'Food, Drink, Hack',
+        'Eat, Drink, Hack',
       ],
       index: 0,
       intervalID: null,
