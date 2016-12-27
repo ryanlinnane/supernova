@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styles from './nav.scss'
 import animate from '../../sass/animate.scss'
-
+import { mobileAndTabletcheck } from '../../lib/device'
 export default class Nav extends Component {
   constructor(props) {
     super(props)
@@ -21,6 +21,9 @@ export default class Nav extends Component {
 
   }
   handleResize() {
+    if(mobileAndTabletcheck(window)) {
+      return
+    }
     console.log('handling resize')
     this.setState({
       innerWidth: window.innerWidth
