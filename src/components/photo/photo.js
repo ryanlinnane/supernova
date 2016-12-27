@@ -102,9 +102,12 @@ export default class Photo extends Component {
     {
       this.state.photoData.map((data, index) => this.getCell(data, index))
     }
+    {/*
     <div onClick={() => {
       window.scrollTo(500,0)
     }}>Scroll To Top</div>
+    */}
     </div>
+
   }
 }

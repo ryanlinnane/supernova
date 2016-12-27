@@ -58,7 +58,7 @@ export default class About extends Component {
   }
   render() {
     return <div className={styles.container}>
-      <div style={{}}>
+      <div>
         <div
          style={{opacity: this.state.opacity}}
          className={styles.centerText}>
