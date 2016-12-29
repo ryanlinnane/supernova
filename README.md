@@ -1,9 +1,8 @@
 ## Elegant responsive landing page
-
-
-![Alt Text](https://github.com/ryanlinnane/personal-landing/raw/master/src/public/images/example.gif)
-
 http://awhoof.com
+
+![Alt Text](https://github.com/ryanlinnane/supernova/raw/master/src/public/images/example.gif)
+
 
 
 A custom react.js personal landing page.
