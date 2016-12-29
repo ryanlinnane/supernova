@@ -1,6 +1,9 @@
 ## Simple landing page
 
 
+![Alt Text](https://github.com/{user}/{repo}/raw/master/src/public/images/example.gif)
+
+
 ##### Development:
 ```ShellSession
 $ cd React-Starter-Light && npm install
