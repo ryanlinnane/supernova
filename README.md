@@ -1,7 +1,7 @@
 ## Simple landing page
 
 
-![Alt Text](https://github.com/{user}/{repo}/raw/master/src/public/images/example.gif)
+![Alt Text](https://github.com/ryanlinnane/personal-landing/raw/master/src/public/images/example.gif)
 
 
 ##### Development:
