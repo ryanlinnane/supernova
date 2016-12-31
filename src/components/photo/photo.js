@@ -48,6 +48,7 @@ export default class Photo extends Component {
 
   componentWillUnmount() {
     this.willUnmount = true
+    this.props.removeLoading('gallery')
   }
   componentDidMount() {
     let colorGenerator = colorPulse([[0,0,0], [255,255,255],  [1, 167, 184], [34, 218, 212]])

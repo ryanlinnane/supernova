@@ -83,12 +83,12 @@ class Main extends Component{
                 case 'photo':
                   return <Photo removeLoading={this.removeLoading} pushLoading={this.pushLoading}/>
                 case 'video':
-                  return <Video removeLoading={this.removeLoading} pushLoading={this.pushLoading} key="video"/>
+                  return <Video removeLoading={this.removeLoading} pushLoading={this.pushLoading}/>
                 return
                 case 'about':
-                  return <About />
+                  return <About/>
                 case 'resume':
-                  return <Resume />
+                  return <Resume removeLoading={this.removeLoading} pushLoading={this.pushLoading} />
                 default:
                   return null
               }
