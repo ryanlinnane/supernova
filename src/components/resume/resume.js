@@ -6,11 +6,9 @@ export default class Resume extends Component {
   }
   render() {
     return (
-      <div style={{overflowY:'auto'}}>
-
-          <iframe src='http://static.awhoof.com/Linnane_Ryan_Resume/1.svg' frameBorder="0" style={{display:'flex', justifyContent:'center', width:'100%', maxWidth:'700px', margin:'0px auto'}}>
-            Your browser does not support iframes
-          </iframe>
+      <div style={{display:'flex', flexDirection:'column', height:'100vh'}}>
+        <iframe src="http://docs.google.com/gview?url=http://static.awhoof.com/Linnane_Ryan_Resume.pdf&embedded=true"
+          style={{width:'100%', flex:'1'}} frameBorder="0" allowTransparency="true"></iframe>
       </div>
     )
   }

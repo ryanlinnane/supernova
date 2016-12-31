@@ -34,20 +34,20 @@ export default class Video extends Component {
             this.props.removeLoading('video')
           }
         }}
-        width="560" scrolling="no" height="360" src="https://www.youtube.com/embed/6rI4QEeajCA" frameborder="0" allowfullscreen>
+        width="560" scrolling="no" height="360" src="https://www.youtube.com/embed/6rI4QEeajCA" frameBorder="0" allowfullscreen>
       </iframe>
       <iframe style={{}}
         src="https://player.vimeo.com/video/196987303"
         width="640"
         height="360"
         scrolling="no"
-        frameborder="0"
+        frameBorder="0"
         webkitallowfullscreen mozallowfullscreen allowfullscreen>
       </iframe>
       <iframe src="https://player.vimeo.com/video/135618601"
         width="640"
         height="360"
-        frameborder="0"
+        frameBorder="0"
         scrolling="no"
         webkitallowfullscreen mozallowfullscreen allowfullscreen>
       </iframe>
