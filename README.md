@@ -1,7 +1,15 @@
-## Simple landing page
+## Elegant responsive landing page
+http://awhoof.com
+
+![Alt Text](https://github.com/ryanlinnane/supernova/raw/master/src/public/images/example.gif)
 
 
-![Alt Text](https://github.com/{user}/{repo}/raw/master/src/public/images/example.gif)
+
+A custom react.js personal landing page.
+Includes:
+* responsive panel and drop-down.
+* picture modal popup and ability to rotate between images.
+
 
 
 ##### Development:
@@ -19,5 +27,3 @@ $ cd dist && npm install
 $ node server
 Visit localhost:3000
 ```
-
-TODO: Add in React-Router to main page.
