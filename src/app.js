@@ -15,6 +15,7 @@ import Video from './components/video/video'
 import About from './components/about/about'
 import Resume from './components/resume/resume'
 import Nav from './components/nav/nav'
+import './analytics'
 
 import styles from './app.scss';
 
