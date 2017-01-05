@@ -36,7 +36,7 @@ export default class Video extends Component {
         }}
         width="560" scrolling="no" height="360" src="https://www.youtube.com/embed/6rI4QEeajCA" frameBorder="0" allowfullscreen>
       </iframe>
-      <iframe style={{}}
+      <iframe 
         src="https://player.vimeo.com/video/196987303"
         width="640"
         height="360"

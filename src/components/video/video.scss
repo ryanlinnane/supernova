@@ -1,19 +1,19 @@
 .videoContainer {
   flex: 1;
-  display:flex;
+  display: flex;
   align-items: center;
-  flex-direction:column;
+  flex-direction: column;
   overflow-y: auto;
-  overflow-x:hidden;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
 .videoContainer iframe {
   width: 100%;
   max-width: 620px;
   margin-bottom:15px;
-  overflow:hidden;
+  overflow: hidden;
   flex: 0 0 auto;
 }
 .videoContainer iframe:nth-child(1) {
-  margin-top:15px;
+  margin-top: 15px;
 }
