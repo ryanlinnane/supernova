@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
 const combiner = combineReducers({
-  example: function(state = {}, action) {
+  placeholder: function(state = {}, action) {
     switch(action.type) {
       default:
         return state;

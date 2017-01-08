@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import styles from './nav.scss'
-import animate from '../../sass/animate.scss'
 import { mobileAndTabletcheck } from '../../lib/device'
 export default class Nav extends Component {
   constructor(props) {
@@ -33,7 +32,7 @@ export default class Nav extends Component {
       <div style={{display:'flex', alignItems:'center',  height:'55px', flex:'0 0 auto', justifyContent:'space-between'}}>
         <div style={{display:'flex', height:'100%', alignItems:'center'}}>
           <div style={{color:'white', paddingLeft: '5px', marginRight:'3px', fontSize:'20px', fontWeight:'500', whiteSpace:'nowrap'}}>
-             <h1> {/*&lt;*/}RYAN LINNANE  {/* &#47;&gt; */}</h1>
+             <h1 className={styles.upperCase}> {/*&lt;*/}ryan linnane  {/* &#47;&gt; */}</h1>
            </div>
           {this.props.isLoading == false ? null : <img src={require('../../crazyLoading.gif')} style={{width:'30px'}}/>}
         </div>
@@ -63,15 +62,6 @@ export default class Nav extends Component {
               if(route.toLowerCase() == this.props.routeID) {
                 style['backgroundColor'] = 'rgb(32, 31, 31)'
               }
-              if(index == 0) {
-                // style['borderStyle'] = 'solid none solid none'
-              }
-              else {
-                // style['borderStyle'] = 'none none solid none'
-              }
-
-
-
               return <div key={route} style={style} className={styles.leftSelector} onClick={() => {
                 if(route.toLowerCase() == 'writing') {
                   window.open('https://ryanlinnane.github.io', '__blank')
@@ -86,10 +76,10 @@ export default class Nav extends Component {
         }
     </div>
     <div style={{display:'flex', alignItems:'center', justifyContent:'space-around', maxWidth:'100%', minWidth:'210px', padding:'2px 0px'}}>
-      <a href='https://github.com/ryanlinnane' target='__blank' className={`${styles.icon}`} style={{flex:'0 0 auto'}}> <img src={require('./icons/github.png')} style={{width:'25px', opacity:'.8', padding:'2px'}} className={animate.row}/></a>
-      <a href='https://www.linkedin.com/in/linnaneryan' target='__blank' className={styles.icon} style={{flex:'0 0 auto'}}> <img src={require('./icons/linkedin.png')} style={{width:'25px', opacity:'.8', padding:'2px'}}/></a>
-      <a href='https://medium.com/@Leef' target='__blank' className={styles.icon} style={{flex:'0 0 auto'}}> <img src={require('./icons/medium.png')} style={{width:'25px', opacity:'.8', padding:'2px'}}/></a>
-      <a href='https://twitter.com/mysticantler' target='__blank' className={styles.icon} style={{flex:'0 0 auto'}}> <img src={require('./icons/twitter.png')} style={{width:'25px', opacity:'.8', padding:'2px'}}/></a>
+      <a href='https://github.com/ryanlinnane' target='__blank' className={`${styles.icon}`}> <img src={require('./icons/github.png')}/></a>
+      <a href='https://www.linkedin.com/in/linnaneryan' target='__blank' className={styles.icon}> <img src={require('./icons/linkedin.png')}/></a>
+      <a href='https://medium.com/@Leef' target='__blank' className={styles.icon}> <img src={require('./icons/medium.png')}/></a>
+      <a href='https://twitter.com/mysticantler' target='__blank' className={styles.icon}> <img src={require('./icons/twitter.png')}/></a>
     </div></div>)
   }
 }

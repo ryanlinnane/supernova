@@ -12,7 +12,6 @@ export default class Video extends Component {
   componentWillUnmount() {
     this.didUnmount = true
     this.props.removeLoading('video')
-
   }
   componentDidMount() {
     this.didUnmount = false
@@ -36,7 +35,7 @@ export default class Video extends Component {
         }}
         width="560" scrolling="no" height="360" src="https://www.youtube.com/embed/6rI4QEeajCA" frameBorder="0" allowfullscreen>
       </iframe>
-      <iframe 
+      <iframe
         src="https://player.vimeo.com/video/196987303"
         width="640"
         height="360"

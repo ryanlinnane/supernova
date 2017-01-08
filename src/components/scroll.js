@@ -1,3 +1,5 @@
+//reusable scroll to top component that takes into account the device size.
+//as a consequence of flex, we need to take the two layout states of the app into consideration differently.
 import React from 'react'
 import animate from '../sass/animate.scss'
 export default (props) => (

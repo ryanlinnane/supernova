@@ -23,14 +23,12 @@ export default class Photo extends Component {
     })
     .then(data => {
       const photo = data.photos.photo
-      //clean url
       let photoData = photo.map(photo => {
          let url = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`
          photo.url = url
          return photo
       })
       this.setState({photoData})
-      // console.log(JSON.stringify(data, null, 4))
       this.props.removeLoading('gallery')
     })
     .catch(err => {
@@ -38,14 +36,10 @@ export default class Photo extends Component {
       this.props.removeLoading('gallery')
     })
   }
-
   componentWillMount() {
     this.fetchPhotos()
   }
-  componentWillReceiveProps(prevProps, nextProps) {
-
-  }
-
+  componentWillReceiveProps(prevProps, nextProps) { }
   componentWillUnmount() {
     this.willUnmount = true
     this.props.removeLoading('gallery')
@@ -81,24 +75,24 @@ export default class Photo extends Component {
   getColorStyle(rgbVector = [0,0,0]) {
     return { boxShadow: `5px 5px 5px rgb(${rgbVector.join(',')})` }
   }
-
   render() {
     return <div className={styles.gallery} ref={(ref) => this.container = ref}>
-    <Modal selectedImage={this.state.photoData[this.state.selectedImageIndex]} onExit={() => {
-      this.setState({
-        selectedImageIndex: null
-      })
-    }}
-    onNext={() => {
-      if(this.state.selectedImageIndex != null) {
-        this.setState({ selectedImageIndex: (this.state.selectedImageIndex + 1 + this.state.photoData.length) % this.state.photoData.length })
-      }
-    }}
-    onPrev={() => {
-      if(this.state.selectedImageIndex != null) {
-        this.setState({ selectedImageIndex: (this.state.selectedImageIndex - 1 + this.state.photoData.length) % this.state.photoData.length })
-      }
-    }}
+    <Modal selectedImage={this.state.photoData[this.state.selectedImageIndex]}
+      onExit={() => {
+        this.setState({
+          selectedImageIndex: null
+        })
+      }}
+      onNext={() => {
+        if(this.state.selectedImageIndex != null) {
+          this.setState({ selectedImageIndex: (this.state.selectedImageIndex + 1 + this.state.photoData.length) % this.state.photoData.length })
+        }
+      }}
+      onPrev={() => {
+        if(this.state.selectedImageIndex != null) {
+          this.setState({ selectedImageIndex: (this.state.selectedImageIndex - 1 + this.state.photoData.length) % this.state.photoData.length })
+        }
+      }}
     />
     {
       this.state.photoData.map((data, index) => this.getCell(data, index))
@@ -107,9 +101,7 @@ export default class Photo extends Component {
       this.state.photoData.length > 0 ? (
         <Scroll container={this.container}/>
     ) : null
-
     }
     </div>
-
   }
 }
