@@ -54,7 +54,7 @@ class Main extends Component{
   componentWillUpdate(nextProps, nextState) {
   }
   componentDidMount() {
-    this.animateBG(0)
+    requestAnimationFrame(() => this.animateBG(0))
   }
   setRouteID(id) {
     this.setState({
@@ -65,7 +65,9 @@ class Main extends Component{
   render(){
     let rightContentStyles = {
       backgroundImage:`url(${require('./public/images/star2.png')})`,
-      backgroundPosition:`center ${this.state.backgroundPosition}px`
+      backgroundPosition:`center ${this.state.backgroundPosition}px`,
+      willChange: `background-position`,
+      transform: `translateZ(0)`
     }
     return(
       <div className={styles.main}>
