@@ -65,9 +65,7 @@ class Main extends Component{
   render(){
     let rightContentStyles = {
       backgroundImage:`url(${require('./public/images/star2.png')})`,
-      backgroundPosition:`center ${this.state.backgroundPosition}px`,
-      willChange: `background-position`,
-      transform: `translateZ(0)`
+      backgroundPosition:`center ${this.state.backgroundPosition}px`
     }
     return(
       <div className={styles.main}>
