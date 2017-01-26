@@ -55,12 +55,18 @@ class Main extends Component{
   }
   componentDidMount() {
     requestAnimationFrame(() => this.animateBG(0))
+    if(window.location.hash) {
+      const routeStartIndex = window.location.href.indexOf('/#/') + 3
+      const hash = window.location.href.substring(routeStartIndex)
+      this.setRouteID(hash.toLowerCase())
+    }
   }
   setRouteID(id) {
     this.setState({
       routeID: id.toLowerCase(),
       loadingIDs: []
     })
+    window.location.hash = '/' + id.toLowerCase()
   }
   render(){
     let rightContentStyles = {
@@ -85,7 +91,6 @@ class Main extends Component{
                   return <Photo removeLoading={this.removeLoading} pushLoading={this.pushLoading}/>
                 case 'video':
                   return <Video removeLoading={this.removeLoading} pushLoading={this.pushLoading}/>
-                return
                 case 'about':
                   return <About/>
                 case 'resume':
