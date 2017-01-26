@@ -60,12 +60,21 @@ class Main extends Component{
       const hash = window.location.href.substring(routeStartIndex)
       this.setRouteID(hash.toLowerCase())
     }
+    if(window.location.hash == '' || window.location.hash == '#/') {
+      window.location.hash = '/about'
+    }
+    window.addEventListener('hashchange', () => {
+      if(window.location.hash.substring(2) != this.state.routeID) {
+        this.setRouteID(window.location.hash.substring(2))
+      }
+    })
   }
   setRouteID(id) {
     this.setState({
       routeID: id.toLowerCase(),
       loadingIDs: []
     })
+    console.log('ID ' + id)
     window.location.hash = '/' + id.toLowerCase()
   }
   render(){
@@ -93,6 +102,8 @@ class Main extends Component{
                   return <Video removeLoading={this.removeLoading} pushLoading={this.pushLoading}/>
                 case 'about':
                   return <About/>
+                case '':
+                  return <About />
                 case 'resume':
                   return <Resume removeLoading={this.removeLoading} pushLoading={this.pushLoading} />
                 default:
