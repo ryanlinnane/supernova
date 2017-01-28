@@ -1,0 +1,17 @@
+.resumeToolbar {
+  width:100%;
+  max-width:800px;
+  position:fixed;
+  top:0px;
+  opacity: 0;
+  transition: opacity 0.8s;
+  // background-color: red;
+  // height:20px;
+}
+
+.container {
+  position: relative;
+}
+.container:hover .resumeToolbar {
+  opacity: 1;
+}
