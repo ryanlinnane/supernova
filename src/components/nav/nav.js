@@ -89,7 +89,7 @@ export default class Nav extends Component {
               if(route.toLowerCase() == this.props.routeID) {
                 style['backgroundColor'] = 'rgb(32, 31, 31)'
               }
-              return <div key={route} style={style} className={styles.leftSelector} onClick={() => {
+              return <div ontouchstart="" key={route} style={style} className={styles.leftSelector} onClick={() => {
                 if(route.toLowerCase() == 'writing') {
                   window.open('https://ryanlinnane.github.io', '__blank')
                   return
