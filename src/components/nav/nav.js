@@ -40,20 +40,17 @@ export default class Nav extends Component {
     let aboutStyle = {}
     if(this.state.innerWidth >= 767) {
       aboutStyle['transition'] = 'none'
-      // aboutStyle['maxHeight'] = 'auto'
     }
     else if(this.state.innerWidth < 767 && this.state.showRoutes) {
       if(this.state.orientationChange) {
         aboutStyle['transition'] = 'none'
+        aboutStyle['maxHeight'] = '200px'
       }
       else {
-        aboutStyle['display'] = 'block'
         aboutStyle['maxHeight'] = '200px'
       }
     }
     else if(this.state.innerWidth < 767 && !this.state.showRoutes) {
-
-
       if(this.state.orientationChange) {
         aboutStyle['transition'] = 'none'
         aboutStyle['display'] = 'none'
@@ -61,8 +58,6 @@ export default class Nav extends Component {
       else {
         aboutStyle['maxHeight'] = '0px'
       }
-      //if prevState was LARGE and now it's small don't animate anything (set transition: none for both)
-      // aboutStyle['transition'] = 'none'
     }
     return (<div className={`${styles.leftPanel}`} >
       <div style={{display:'flex', alignItems:'center',  height:'55px', flex:'0 0 auto', justifyContent:'space-between'}}>
