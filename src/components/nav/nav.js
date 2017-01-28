@@ -28,6 +28,23 @@ export default class Nav extends Component {
     })
   }
   render() {
+
+    let aboutStyle = {}
+    if(this.state.innerWidth >= 767) {
+      aboutStyle['transition'] = 'none'
+      aboutStyle['height'] = 'auto'
+      aboutStyle['maxHeight'] = 'auto'
+    }
+    else if(this.state.innerWidth < 767 && this.state.showRoutes) {
+      aboutStyle['display'] = 'block'
+    }
+    else if(this.state.innerWidth < 767 && !this.state.showRoutes) {
+      // alert('display nothing')
+      aboutStyle['display'] = 'none'
+    }
+
+
+
     return (<div className={`${styles.leftPanel}`} >
       <div style={{display:'flex', alignItems:'center',  height:'55px', flex:'0 0 auto', justifyContent:'space-between'}}>
         <div style={{display:'flex', height:'100%', alignItems:'center'}}>
@@ -45,7 +62,7 @@ export default class Nav extends Component {
           }}/>
         </div>
       </div>
-      <div className={styles.about}>
+      <div className={styles.about} style={aboutStyle}>
         {/*left*/}
         {
           () => {
@@ -54,10 +71,10 @@ export default class Nav extends Component {
             return routes.map((route, index) => {
               let style = {}
               if(this.state.showRoutes == true || this.state.innerWidth >= 767) {
-                style['display'] = 'block'
+                // style['display'] = 'block'
               }
               else {
-                style['display'] = 'none'
+                // style['display'] = 'none'
               }
               if(route.toLowerCase() == this.props.routeID) {
                 style['backgroundColor'] = 'rgb(32, 31, 31)'
