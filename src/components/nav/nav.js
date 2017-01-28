@@ -86,7 +86,6 @@ export default class Nav extends Component {
             const routes = ['ABOUT', 'PHOTO', 'VIDEO', 'RESUME', 'WRITING']
             return routes.map((route, index) => {
               let style = {}
-
               if(route.toLowerCase() == this.props.routeID) {
                 style['backgroundColor'] = 'rgb(32, 31, 31)'
               }

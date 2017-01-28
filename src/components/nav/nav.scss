@@ -32,6 +32,9 @@ h1.upperCase {
 .leftSelector:hover {
   background-color: rgba(126, 126, 126, 0.81);
 }
+.leftSelector:active {
+  @extend .glow;
+}
 .icon {
   padding:5px;
   border-radius: 5px;
