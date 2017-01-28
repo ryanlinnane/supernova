@@ -7,7 +7,8 @@ export default class Nav extends Component {
     this.state = {
       loadingIDs: [],
       showRoutes: false,
-      innerWidth: window.innerWidth
+      innerWidth: window.innerWidth,
+      orientationChange: false
     }
     this.handleResize = this.handleResize.bind(this)
   }
@@ -23,24 +24,43 @@ export default class Nav extends Component {
     if(mobileAndTabletcheck(window)) {
       return
     }
+
+    let orientationChange = false
+    if(window.innerWidth >= 767 && this.state.innerWidth < 767 || window.innerWidth < 767 && this.state.innerWidth >= 767) {
+      orientationChange = true
+    }
+
     this.setState({
-      innerWidth: window.innerWidth
+      innerWidth: window.innerWidth,
+      orientationChange
     })
   }
   render() {
 
     let aboutStyle = {}
     if(this.state.innerWidth >= 767) {
-      // aboutStyle['transition'] = 'none'
+      aboutStyle['transition'] = 'none'
       // aboutStyle['maxHeight'] = 'auto'
     }
     else if(this.state.innerWidth < 767 && this.state.showRoutes) {
-      aboutStyle['display'] = 'block'
-      aboutStyle['maxHeight'] = '300px'
+      if(this.state.orientationChange) {
+        aboutStyle['transition'] = 'none'
+      }
+      else {
+        aboutStyle['display'] = 'block'
+        aboutStyle['maxHeight'] = '200px'
+      }
     }
     else if(this.state.innerWidth < 767 && !this.state.showRoutes) {
-      aboutStyle['maxHeight'] = '0px'
-      aboutStyle['transition'] = 'none'
+
+
+      if(this.state.orientationChange) {
+        aboutStyle['transition'] = 'none'
+        aboutStyle['display'] = 'none'
+      }
+      else {
+        aboutStyle['maxHeight'] = '0px'
+      }
       //if prevState was LARGE and now it's small don't animate anything (set transition: none for both)
       // aboutStyle['transition'] = 'none'
     }
@@ -69,12 +89,6 @@ export default class Nav extends Component {
             const routes = ['ABOUT', 'PHOTO', 'VIDEO', 'RESUME', 'WRITING']
             return routes.map((route, index) => {
               let style = {}
-              if(this.state.showRoutes == true || this.state.innerWidth >= 767) {
-                // style['display'] = 'block'
-              }
-              else {
-                // style['display'] = 'none'
-              }
               if(route.toLowerCase() == this.props.routeID) {
                 style['backgroundColor'] = 'rgb(32, 31, 31)'
               }
