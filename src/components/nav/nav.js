@@ -7,7 +7,8 @@ export default class Nav extends Component {
     this.state = {
       loadingIDs: [],
       showRoutes: false,
-      innerWidth: window.innerWidth
+      innerWidth: window.innerWidth,
+      orientationChange: false
     }
     this.handleResize = this.handleResize.bind(this)
   }
@@ -23,17 +24,42 @@ export default class Nav extends Component {
     if(mobileAndTabletcheck(window)) {
       return
     }
+
+    let orientationChange = false
+    if(window.innerWidth >= 767 && this.state.innerWidth < 767 || window.innerWidth < 767 && this.state.innerWidth >= 767) {
+      orientationChange = true
+    }
+
     this.setState({
-      innerWidth: window.innerWidth
+      innerWidth: window.innerWidth,
+      orientationChange
     })
   }
   render() {
 
-    let aboutStyles = {}
-    if(this.state.showRoutes == true || this.state.innerWidth >= 767) {
-      aboutStyles['maxHeight'] = '200px'
-    }
 
+    let aboutStyle = {}
+    if(this.state.innerWidth >= 767) {
+      aboutStyle['transition'] = 'none'
+    }
+    else if(this.state.innerWidth < 767 && this.state.showRoutes) {
+      if(this.state.orientationChange) {
+        aboutStyle['transition'] = 'none'
+        aboutStyle['maxHeight'] = '200px'
+      }
+      else {
+        aboutStyle['maxHeight'] = '200px'
+      }
+    }
+    else if(this.state.innerWidth < 767 && !this.state.showRoutes) {
+      if(this.state.orientationChange) {
+        aboutStyle['transition'] = 'none'
+        aboutStyle['display'] = 'none'
+      }
+      else {
+        aboutStyle['maxHeight'] = '0px'
+      }
+    }
     return (<div className={`${styles.leftPanel}`} >
       <div style={{display:'flex', alignItems:'center',  height:'55px', flex:'0 0 auto', justifyContent:'space-between'}}>
         <div style={{display:'flex', height:'100%', alignItems:'center'}}>
@@ -51,7 +77,8 @@ export default class Nav extends Component {
           }}/>
         </div>
       </div>
-      <div className={styles.about} style={aboutStyles}>
+      <div className={styles.about} style={aboutStyle}>
+
         {/*left*/}
         {
           () => {
@@ -59,12 +86,7 @@ export default class Nav extends Component {
             const routes = ['ABOUT', 'PHOTO', 'VIDEO', 'RESUME', 'WRITING']
             return routes.map((route, index) => {
               let style = {}
-              if(this.state.showRoutes == true || this.state.innerWidth >= 767) {
-                // style['display'] = 'block'
-              }
-              else {
-                // style['display'] = 'none'
-              }
+
               if(route.toLowerCase() == this.props.routeID) {
                 style['backgroundColor'] = 'rgb(32, 31, 31)'
               }
