@@ -12,7 +12,7 @@ export default (props) => (
         }
       }
     }
-    style={{margin:'5px 0px', width:'50px', height:'40px', display:'flex', flex:'0 0 auto', justifyContent:'center', alignItems:'center'}}
+    style={{margin:'15px 0px', width:'50px', height:'40px', display:'flex', flex:'0 0 auto', justifyContent:'center', alignItems:'center'}}
   >
     <img src={require('./photo/double_up.png')} className={animate.grow}/>
   </a>
