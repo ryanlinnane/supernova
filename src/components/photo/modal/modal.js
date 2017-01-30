@@ -31,8 +31,8 @@ export default class Modal extends Component {
     if(this.props.selectedImage == null) {
         return null
     }
-    let leftArrowStyles = {left:'0px', opacity:'0.5', top:'calc(50% - 30px)', position:'absolute',padding:'5px', display:'flex', justifyContent:'center', alignItems:'center', display:'none'}
-    let rightArrowStyles = {right:'0px',opacity:'0.5', top:'calc(50% - 30px)', position:'absolute', padding:'5px', display:'flex', justifyContent:'center', alignItems:'center', display:'none'}
+    let leftArrowStyles = {left:'0px', opacity:'0.5', top:'calc(50% - 30px)', position:'absolute',padding:'5px', display:'flex', justifyContent:'center', alignItems:'center', display:'none', cursor:'pointer'}
+    let rightArrowStyles = {right:'0px',opacity:'0.5', top:'calc(50% - 30px)', position:'absolute', padding:'5px', display:'flex', justifyContent:'center', alignItems:'center', display:'none', cursor:'pointer'}
     if(this.state.isMouseOver) {
       leftArrowStyles = {...leftArrowStyles, display:'block'}
       rightArrowStyles = {...rightArrowStyles, display:'block'}

@@ -83,14 +83,14 @@ export default class Nav extends Component {
         {
           () => {
             // console.log('window ' + )
-            const routes = ['ABOUT', 'PHOTO', 'VIDEO', 'RESUME', 'WRITING']
+            const routes = ['ABOUT', 'PHOTO', 'VIDEO', 'RESUME', 'MUSING']
             return routes.map((route, index) => {
               let style = {}
               if(route.toLowerCase() == this.props.routeID) {
                 style['backgroundColor'] = 'rgb(32, 31, 31)'
               }
               return <div ontouchstart="" key={route} style={style} className={styles.leftSelector} onClick={() => {
-                if(route.toLowerCase() == 'writing') {
+                if(route.toLowerCase() == 'musing') {
                   window.open('https://ryanlinnane.github.io', '__blank')
                   return
                 }
