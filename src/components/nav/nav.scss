@@ -78,6 +78,7 @@ h1.upperCase {
     width:100%;
   }
   .about {
+    overflow:hidden;
     position:relative;
     top:auto;
     width:auto;
@@ -89,9 +90,7 @@ h1.upperCase {
     max-height: auto;
   }
 
-  // .leftPanel:hover .about{
-  //   // height: auto;
-  // }
+
   .leftSelector {
     padding:7px 0px 7px 5px;
   }
