@@ -106,7 +106,7 @@ export default class Nav extends Component {
       <a href='https://github.com/ryanlinnane' target='__blank' className={`${styles.icon}`}> <img src={require('./icons/github.png')}/></a>
       <a href='https://www.linkedin.com/in/linnaneryan' target='__blank' className={styles.icon}> <img src={require('./icons/linkedin.png')}/></a>
       <a href='https://medium.com/@Leef' target='__blank' className={styles.icon}> <img src={require('./icons/medium.png')}/></a>
-      <a href='https://twitter.com/mysticantler' target='__blank' className={styles.icon}> <img src={require('./icons/twitter.png')}/></a>
+      <a href='https://twitter.com/whoofshowl' target='__blank' className={styles.icon}> <img src={require('./icons/twitter.png')}/></a>
     </div></div>)
   }
 }
