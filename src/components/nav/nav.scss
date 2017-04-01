@@ -1,12 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans');
 
-.headerFont {
-    font-family: 'Fira Sans', sans-serif;
-    // letter-spacing: 3px;
-    font-size: 1.75em;
-    font-weight: 300;
-    line-height: 30px;
-}
+
 
 .leftPanel {//rgba(47, 2, 47, 0.95);
   background-color:rgba(45, 45, 45, 1); 
@@ -51,12 +45,11 @@ h1.upperCase {
     opacity: 1;
     z-index: 5;
   }
-
 }
 
 
 .leftSelector {
-  font-size:18px;
+  font-size:1.3em;
   cursor: pointer;
   padding:10px 0px 10px 5px;
   display:block;

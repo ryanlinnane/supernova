@@ -1,18 +1,53 @@
 .container {
-  color:white;
-  width: 80%;
-  margin: auto auto;
-  font-size:32px;
+  flex:1;
+  width: 100%;
+  display: flex;
+  align-self: stretch;
+  justify-content: center;
+  align-items: center;
+  a {
+    text-decoration: none;
+  }
+  .existTT {
+    position:absolute;
+    display: block;
+    margin-top: -140px;
+    height: 30px;
+    background-color: transparent;
+  }
+  .exist:hover {
+    & ~ .existTT {
+      color:red;
+      display: block;
+    }
+  }
+
+  p {
+    margin: 0px;
+    margin: 13px 0px;
+    background-color:#27232c;
+    display: inline-block;
+  }
+
+  .bigger {
+    font-size: 300%;
+  }
+
+  h1 {
+    font-family:'Avenir', sans-serif;
+  }
+  // font-size: 1.4em;
   font-weight:500;
-  min-height:200px;
+  height: auto;
   display:flex;
   justify-content: center;
   align-items: center;
   border-radius:5px;
   position:relative;
   word-wrap: break-word;
-  max-width:700px;
+  // max-width:750px;
   overflow-y: auto;
+  // background-color:red;
 }
 .centerText {
   display:flex;

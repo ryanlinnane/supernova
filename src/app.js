@@ -80,12 +80,10 @@ class Main extends Component{
   render(){
     let rightContentStyles = {
       backgroundImage:`url(${require('./public/images/star2.png')})`,
-      backgroundPosition:`center ${this.state.backgroundPosition}px`,
-      width:'100vw'
+      backgroundPosition:`center ${this.state.backgroundPosition}px`
     }
     return(
-      <div className={styles.main} 
-          style={rightContentStyles}>
+      <div className={styles.main}>
         <Nav onRouteClick={(routeID) => {
             this.setRouteID(routeID)
           }}
@@ -93,6 +91,7 @@ class Main extends Component{
           isLoading={this.state.loadingIDs.length > 0}
         />
         <div className={styles.rightContent}
+          style={rightContentStyles}
         >
           {
             (() => {

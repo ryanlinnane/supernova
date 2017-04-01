@@ -4,52 +4,11 @@ import styles from './about.scss'
 export default class About extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      messages: [
-        'Fullstack Engineer',
-        'Computer Science MS Candidate @ GATech',
-        'Eat, Drink, Hack'
-      ],
-      index: 0,
-      intervalID: null,
-      opacity: 0
-    }
-    this.fade = this.fade.bind(this)
+    this.state = { }
   }
 
-  fade(val, isIncreasing) {
-    if(this.unmounted == true) {
-      return
-    }
-    if(val <= 0 && isIncreasing == false) {
-      //transition to next message
-      let index = (this.state.index + 1) % this.state.messages.length
-      this.setState({
-          index
-      })
-      isIncreasing = true
-    }
-    else if(val >= 1  && isIncreasing == true) {
-      isIncreasing = falsea
-    }
-    if(isIncreasing) {
-      val += 0.01
-    }
-    else {
-      val -= 0.01
-    }
-    requestAnimationFrame(() => {
-      if(this.unmounted == false) {
-        this.setState({
-          opacity: val
-        })
-      }
-      this.fade(val, isIncreasing)
-    })
-  }
   componentDidMount() {
     //delay appending CSS fade animator so that it's in sync once the JS interval starts running
-    this.fade(0, true)
     this.unmounted = false
   }
 
@@ -58,14 +17,30 @@ export default class About extends Component {
   }
   render() {
     return <div className={styles.container}>
-      <div>
-        <div
-         style={{opacity: this.state.opacity}}
-         className={styles.centerText}>
-          {this.state.messages[this.state.index]}
-        </div>
-        <div className={styles.cardIndex}>
-          <div> {this.state.index + 1} / {this.state.messages.length} </div>
+      <div style={{maxWidth: '700px', backgroundColor:'red'}}>
+        <div style={{overflow: 'visible'}}>
+          <div style={{position:'relative', overflow: 'visible'}}>
+            <p className={`${styles.bigger} ${styles.exist}`}>
+              I exist.
+            </p>
+            <p className={`${styles.existTT}`}>HAHAHA</p>
+          </div>
+          <div> 
+            <p>Thanks for dropping in.</p> 
+          </div>
+          <div>
+            <p>
+              Professionally, I'm a software engineer. I work <a href="https://fullstory.com">@FullStory</a> in Atlanta. 
+              The side of the stack or language doesn't matter. 
+              To me, it's all logic. 
+            </p>
+          </div>
+
+          <p>
+            Computer science fascinates me because of community.
+            I view it as modern alchemy- turning "nothing" into something. The pontential to touch an insane number of people all around the world fascinates me.
+          </p>
+          <p>Unprofessionally, I'm a legendary starfish tamer.</p>
         </div>
       </div>
     </div>
