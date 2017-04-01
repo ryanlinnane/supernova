@@ -7,7 +7,76 @@
   align-items: center;
   a {
     text-decoration: none;
+    color: rgba(97, 184, 147, 0.9);
   }
+
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes growText{
+    // 0% {
+    // }
+    // 100% {
+    //   font-size: 600%;
+    // }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      margin-top:50px;
+    }
+    10% {
+      margin-top:50px;
+    }
+    100% {
+      opacity: 1;
+      margin-top:0px;
+    }
+  }
+
+  @keyframes dots {
+    0% {
+      content: '.'
+    }
+    25% {
+      content: '..'
+    }
+    75% {
+      content: '...'
+    }
+    100% {
+      content: '....'
+    }
+  }
+
+  .fadeOut::after {
+    content:'';
+    animation: dots 3s forwards;
+  }
+
+  .fadeOut {
+    background-color:transparent;
+    position:absolute;
+    animation: fadeOut 1s forwards 2s, growText 2s forwards 0s;
+    // animation-delay: 5s;
+  }
+
+  .fadeIn {
+    animation: fadeIn 2.5s forwards 3s;
+  }
+
+  .aboutContent {
+    opacity: 0;
+  }
+
   .existTT {
     position:absolute;
     display: block;
@@ -16,10 +85,12 @@
     background-color: transparent;
   }
   .exist:hover {
-    & ~ .existTT {
-      color:red;
-      display: block;
+    & {
+      opacity: 0;
     }
+  }
+  .exist {
+    transition: opacity 1s linear;
   }
 
   p {
@@ -45,9 +116,7 @@
   border-radius:5px;
   position:relative;
   word-wrap: break-word;
-  // max-width:750px;
-  overflow-y: auto;
-  // background-color:red;
+  overflow: auto;
 }
 .centerText {
   display:flex;
