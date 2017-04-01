@@ -6,17 +6,9 @@ h1 {
   color:white;
   font-weight:500;
   position:relative;
-  // display:inline;
-  // letter-spacing: -1x;
-  // color: rgba(255, 255, 255,0.05)
 }
-// h1:after {
-//   content: "RYAN LINNANE";
-//   position: absolute;
-//   left:10px; top:5px;
-//   color:rgba(255, 255,255,0.7)
-// }
 
+::selection { background: rgba(231, 255, 67, 0.902); }
 body {
   margin: 0;
   padding: 0;

@@ -30,7 +30,7 @@ export default class About extends Component {
       isIncreasing = true
     }
     else if(val >= 1  && isIncreasing == true) {
-      isIncreasing = false
+      isIncreasing = falsea
     }
     if(isIncreasing) {
       val += 0.01

@@ -79,7 +79,7 @@ class Main extends Component{
   }
   render(){
     let rightContentStyles = {
-      backgroundImage:`url(${require('./public/images/star2.png')})`,
+      backgroundImage:`url(${require('./public/images/stars-white.png')})`,
       backgroundPosition:`center ${this.state.backgroundPosition}px`
     }
     return(
@@ -94,7 +94,7 @@ class Main extends Component{
           style={rightContentStyles}
         >
           {
-            () => {
+            (() => {
               switch(this.state.routeID) {
                 case 'photo':
                   return <Photo removeLoading={this.removeLoading} pushLoading={this.pushLoading}/>
@@ -109,7 +109,7 @@ class Main extends Component{
                 default:
                   return null
               }
-            }()
+            })()
           }
         </div>
       </div>

@@ -2,18 +2,20 @@
 
 .headerFont {
     font-family: 'Fira Sans', sans-serif;
-    letter-spacing: 3px;
-    font-size:135%;
+    // letter-spacing: 3px;
+    font-size: 1.75em;
+    font-weight: 300;
+    line-height: 30px;
 }
 
 .leftPanel {
-  background-color:#333333;
+  background-color:#2f022f;
   color: #AEBFCE;
   position: relative;
   display:flex;
   flex-direction:column;
   justify-content: space-between;
-  width:230px;
+  width:270px;
 
   font-family: 'Fira Sans', sans-serif;
 }
@@ -77,7 +79,7 @@ h1.upperCase {
   img {
     width: 25px;
     opacity: .8;
-    padding: 2px;
+    padding: 2.5px;
   }
 }
 .icon:hover {
@@ -100,7 +102,6 @@ h1.upperCase {
     display:block;
   }
   .leftPanel {
-    background-color:#333333;
     color: #AEBFCE;
     flex:0 0 auto;
     position: relative;
