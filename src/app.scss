@@ -8,7 +8,10 @@ h1 {
   position:relative;
 }
 
-::selection { background: rgba(231, 255, 67, 0.902); }
+::selection { 
+  background: rgb(139, 254, 206);
+  // color: #282828; 
+}
 body {
   margin: 0;
   padding: 0;

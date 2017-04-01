@@ -87,7 +87,7 @@ export default class Nav extends Component {
             return routes.map((route, index) => {
               let style = {}
               if(route.toLowerCase() == this.props.routeID) {
-                style['backgroundColor'] = '#74c8ab'
+                style['backgroundColor'] = 'rgba(139, 254, 206, 0.7)'
               }
               return <div onTouchStart="" key={route} style={style} className={`${styles.leftSelector} ${styles.yShift}`} onClick={() => {
                 if(route.toLowerCase() == 'musing') {
