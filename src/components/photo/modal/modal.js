@@ -22,7 +22,11 @@ export default class Modal extends Component {
     }
   }
   componentDidMount() {
+
+    // console.log('preview', this.preview)
+    // console.log(this.refs)
     window.addEventListener('keydown', this.handleKey.bind(this))
+    // console.log(this.refs.img.getBoundingClientRect().width)
   }
   componentWillUnmount() {
     window.removeEventListener('keydown', this.handleKey.bind(this))
@@ -37,12 +41,17 @@ export default class Modal extends Component {
       leftArrowStyles = {...leftArrowStyles, display:'block'}
       rightArrowStyles = {...rightArrowStyles, display:'block'}
     }
+    // console.dir(this.props.selectedImage)
     return (
       <div className={styles.modal} onClick={this.props.onExit} >
-        <div style={{width:'auto', height:'auto', borderRadius:'5px', position:'relative'}} onClick={(e) => {e.stopPropagation()}} onMouseOver={() => {this.setState({isMouseOver: true})}} onMouseLeave={() => {this.setState({isMouseOver: false})}}>
-          <img src={this.props.selectedImage.url} style={{width:'100%'}}/>
-          <div style={leftArrowStyles} onClick={(e) => {e.stopPropagation(); this.props.onPrev()}}><img src={require('./previous.png')} style={{width:'60px'}} /></div>
-          <div style={rightArrowStyles} onClick={(e) => {e.stopPropagation(); this.props.onNext()}}><img src={require('./next.png')} style={{width:'60px'}} /></div>
+        <div style={{width:'auto', maxWidth:'100vw', height:'auto', borderRadius:'5px', position:'relative'}} onClick={(e) => {e.stopPropagation()}} onMouseOver={() => {this.setState({isMouseOver: true})}} onMouseLeave={() => {this.setState({isMouseOver: false})}}>
+          <img src={this.props.selectedImage.url} style={{width:`${this.props.defaultWidth > 280 ? this.props.defaultWidth*2 : this.props.defaultWidth*1.75}px`, maxWidth: '100vw'}}/>
+          <div style={leftArrowStyles} onClick={(e) => {e.stopPropagation(); this.props.onPrev()}}>
+            <img src={require('./back-white.png')} style={{width:'60px'}} ref={(prev) => { this.preview = prev }}/>
+          </div>
+          <div style={rightArrowStyles} onClick={(e) => {e.stopPropagation(); this.props.onNext()}}>
+            <img src={require('./next-white.png')} style={{width:'60px'}} />
+          </div>
         </div>
       </div>
     )

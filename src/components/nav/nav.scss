@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
+
+.headerFont {
+    font-family: 'Fira Sans', sans-serif;
+    letter-spacing: 3px;
+    font-size:135%;
+}
+
 .leftPanel {
   background-color:#333333;
   color: #AEBFCE;
@@ -6,6 +14,8 @@
   flex-direction:column;
   justify-content: space-between;
   width:230px;
+
+  font-family: 'Fira Sans', sans-serif;
 }
 .about {
   overflow-y: auto;
@@ -48,6 +58,8 @@ h1.upperCase {
   cursor: pointer;
   padding:10px 0px 10px 5px;
   display:block;
+  font-family: 'Fira Sans', sans-serif;
+  letter-spacing: 2px;
 }
 .leftSelector:hover {
   background-color: rgba(126, 126, 126, 0.81);

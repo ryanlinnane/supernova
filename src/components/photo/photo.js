@@ -11,6 +11,7 @@ export default class Photo extends Component {
     this.state = {
       photoData: [],
       selectedImageIndex: null,
+      selectedImageWidth: null
     }
     this.willUnmount = false
     this.colorStep = this.colorStep.bind(this)
@@ -28,6 +29,7 @@ export default class Photo extends Component {
          photo.url = url
          return photo
       })
+      console.dir(data.photos)
       this.setState({photoData})
       this.props.removeLoading('gallery')
     })
@@ -63,11 +65,13 @@ export default class Photo extends Component {
   }
   getCell(data, key) {
     let cellStyle = key == this.state.hoveredID ? { backgroundColor:'rgb(240, 236, 236)' } : {}
+    let reference = null;
     return <div style={{color:'white', maxWidth:'480px'}} key={key}>
       { data.title != "" ? <div style={{marginTop:'10px', fontSize:'28px'}}> { data.title.toUpperCase() } </div> : null }
-      <img src={data.url} style={{ ...this.getColorStyle(this.state.color), ...cellStyle , ...{ margin:'10px 0px', maxWidth:'100%', cursor:'pointer'}}} onClick={() => {
+      <img src={data.url} ref={(r) => this.imageWidth = r} style={{ ...this.getColorStyle(this.state.color), ...cellStyle , ...{ margin:'10px 0px', maxWidth:'100%', cursor:'pointer'}}} onClick={() => {
         this.setState({
-          selectedImageIndex: key
+          selectedImageIndex: key,
+          selectedImageWidth: this.imageWidth.clientWidth
         })
       }} />
     </div>
@@ -77,7 +81,7 @@ export default class Photo extends Component {
   }
   render() {
     return <div className={styles.gallery} ref={(ref) => this.container = ref}>
-    <Modal selectedImage={this.state.photoData[this.state.selectedImageIndex]}
+    <Modal selectedImage={this.state.photoData[this.state.selectedImageIndex]} defaultWidth={this.state.selectedImageWidth}
       onExit={() => {
         this.setState({
           selectedImageIndex: null
