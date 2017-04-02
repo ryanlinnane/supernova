@@ -4,13 +4,28 @@ import styles from './about.scss'
 export default class About extends Component {
   constructor(props) {
     super(props)
-    this.state = { }
+    this.state = { fadeContent: 'I exist'}
+    this.addDots = this.addDots.bind(this)
   }
 
   componentDidMount() {
     //delay appending CSS fade animator so that it's in sync once the JS interval starts running
     this.unmounted = false
+
+    this.addDots(Date.now())
   }
+
+
+  addDots(startTime) {
+    if(Date.now() - startTime > 4000) {
+      return true;
+    }
+    this.setState({
+      fadeContent: this.state.fadeContent + '.'
+    })
+    setTimeout(() => this.addDots(startTime), 1000)
+  }
+
 
   componentWillUnmount() {
     this.unmounted = true
@@ -20,7 +35,7 @@ export default class About extends Component {
       <div style={{maxWidth: '700px', margin: 'auto'}}>
           <div style={{position:'relative', overflow: 'visible'}} >
             <p className={`${styles.bigger} ${styles.exist} ${styles.fadeOut}`}>
-              I exist
+              { this.state.fadeContent }
             </p>
           </div>
 
@@ -33,8 +48,8 @@ export default class About extends Component {
                 Professionally, I'm a software engineer <a href="https://fullstory.com" target="_blank">@FullStory</a> in Atlanta. 
               </p>
               <p>
-                I'm writing in typescript and golang these days, but I'm programming language agnostic. These are fun tools, but it's all logic.
-                What really excites me about computer science is the community behind it. People coming together to collectively grow and push the boundaries of making new ways to communicate information.
+                I'm writing in typescript and golang these days, but I'm programming language agnostic. It's all logic.
+                What really excites me about computer science is the community behind it. People coming together to collectively grow and push the boundaries of new ways to communicate information.
               </p>
             </div>
             <div>
@@ -44,7 +59,8 @@ export default class About extends Component {
               </p>
             </div>
             <div>
-              <p>Unprofessionally, I like working out! Focusing my mind and energy in that exact moment of time- it's meditative. I also love coffee, trying new foods, lo-fi music, and traveling.</p>
+              <p>Unprofessionally, I like working out! Focusing my mind and energy in that exact moment of time- it's meditative. I also love coffee, trying new foods, lo-fi music, plain t-shirts, and traveling. 
+                I also spend a good chunk of time working on a part-time master's through georgia tech to add more degrees to my degree belt.</p>
             </div>
             <div>
               <p>Feel free to direct message me on twitter or shoot me an <a href="mailto:ry@awhoof.com">email</a>. I'm open to freelancing, friendships, whatever.</p>
