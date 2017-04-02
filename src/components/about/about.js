@@ -49,13 +49,13 @@ export default class About extends Component {
               </p>
               <p>
                 I'm writing in typescript and golang these days, but I'm programming language agnostic. It's all logic.
-                What really excites me about computer science is the community behind it. People coming together to collectively grow and push the boundaries of new ways to communicate information.
+                What really excites me about computer science is the community behind it. People coming together to collectively grow and push the boundaries of ways to communicate information.
               </p>
             </div>
             <div>
               <p>
                 But it doesn't stop there. I view programming as modern alchemy- turning "nothing" into something. 
-                Playing animator along with the potential to touch an insane number of people all over the world fascinates me.
+                Bringing things to life along with the potential to touch an insane number of people all over the world fascinates me.
               </p>
             </div>
             <div>
@@ -64,6 +64,9 @@ export default class About extends Component {
             </div>
             <div>
               <p>Feel free to direct message me on twitter or shoot me an <a href="mailto:ry@awhoof.com">email</a>. I'm open to freelancing, friendships, whatever.</p>
+            </div>
+            <div>
+              <p>So.. yeah. everything is chill.</p>
             </div>
             <div style={{textAlign:'right'}}>
               -Legendary starfish tamer
