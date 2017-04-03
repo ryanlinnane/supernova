@@ -60,13 +60,15 @@ export default class About extends Component {
             </div>
             <div>
               <p>Unprofessionally, I like working out! Focusing my mind and energy in that exact moment of time- it's meditative. I also love coffee, trying new foods, lo-fi music, plain t-shirts, and traveling. 
-                I also spend a good chunk of time working on a part-time master's through georgia tech to add more degrees to my degree belt.</p>
+                Other than that, I spend a good chunk of time working on a part-time master's through georgia tech to add more degrees to my degree belt and to expand my academic mind.</p>
             </div>
             <div>
               <p>Feel free to direct message me on twitter or shoot me an <a href="mailto:ry@awhoof.com">email</a>. I'm open to freelancing, friendships, whatever.</p>
             </div>
             <div>
-              <p>So.. yeah. everything is chill.</p>
+              <p>So.. yeah.. everything is chill.
+                Here, have a <a href="http://static.awhoof.com/shooter/" target="_blank">gamez</a>. Shake your phone really hard to activate mobile-gawd-mode ;). Peace.
+              </p>
             </div>
             <div style={{textAlign:'right'}}>
               -Legendary starfish tamer
