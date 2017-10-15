@@ -74,7 +74,6 @@ class Main extends Component{
       routeID: id.toLowerCase(),
       loadingIDs: []
     })
-    console.log('ID ' + id)
     window.location.hash = '/' + id.toLowerCase()
   }
   render(){

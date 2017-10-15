@@ -29,12 +29,10 @@ export default class Photo extends Component {
          photo.url = url
          return photo
       })
-      console.dir(data.photos)
       this.setState({photoData})
       this.props.removeLoading('gallery')
     })
     .catch(err => {
-      console.error(err)
       this.props.removeLoading('gallery')
     })
   }

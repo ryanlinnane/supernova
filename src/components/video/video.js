@@ -33,7 +33,7 @@ export default class Video extends Component {
             this.props.removeLoading('video')
           }
         }}
-        width="560" scrolling="no" height="360" src="https://www.youtube.com/embed/6rI4QEeajCA" frameBorder="0" allowfullscreen>
+        width="560" scrolling="no" height="360" src="https://www.youtube.com/embed/6rI4QEeajCA" frameBorder="0" allowFullScreen>
       </iframe>
       <iframe
         src="https://player.vimeo.com/video/196987303"
@@ -41,14 +41,14 @@ export default class Video extends Component {
         height="360"
         scrolling="no"
         frameBorder="0"
-        webkitallowfullscreen mozallowfullscreen allowfullscreen>
+        allowFullScreen>
       </iframe>
       <iframe src="https://player.vimeo.com/video/135618601"
         width="640"
         height="360"
         frameBorder="0"
         scrolling="no"
-        webkitallowfullscreen mozallowfullscreen allowfullscreen>
+        allowFullScreen>
       </iframe>
         { this.state.didLoad ? <Scroll container={this.topFrame}/> : null }
     </div>

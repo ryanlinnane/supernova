@@ -11,21 +11,18 @@ export default class About extends Component {
   componentDidMount() {
     //delay appending CSS fade animator so that it's in sync once the JS interval starts running
     this.unmounted = false
-
     this.addDots(Date.now())
   }
 
-
   addDots(startTime) {
-    if(Date.now() - startTime > 4000) {
+    if(Date.now() - startTime > 800) {
       return true;
     }
     this.setState({
       fadeContent: this.state.fadeContent + '.'
     })
-    setTimeout(() => this.addDots(startTime), 1000)
+    setTimeout(() => this.addDots(startTime), 400)
   }
-
 
   componentWillUnmount() {
     this.unmounted = true
@@ -40,36 +37,21 @@ export default class About extends Component {
           </div>
 
           <div className={`${styles.aboutContent} ${styles.fadeIn}`}>
-            <div> 
-              <p>Ah yes.. with that existential crisis introduction out of the way, I thank you for dropping by to my portal-thingy, <a href="https://github.com/ryanlinnane/supernova" target="_blank">supernova</a>.</p> 
-            </div>
-            <div>
-              <p>
-                Professionally, I'm a software engineer <a href="https://fullstory.com" target="_blank">@FullStory</a> in Atlanta. 
-              </p>
-              <p>
-                I'm writing in typescript and golang these days, but I'm programming language agnostic. It's all logic.
-                What really excites me about computer science is the community behind it. People coming together to collectively grow and push the boundaries of ways to communicate information.
-              </p>
-            </div>
-            <div>
-              <p>
-                But it doesn't stop there. I view programming as modern alchemy- turning "nothing" into something. 
-                Bringing things to life along with the potential to touch an insane number of people all over the world fascinates me.
-              </p>
-            </div>
-            <div>
-              <p>Unprofessionally, I like working out! Focusing my mind and energy in that exact moment of time- it's meditative. I also love coffee, trying new foods, lo-fi music, plain t-shirts, and traveling. 
-                Other than that, I spend a good chunk of time working on a part-time master's through georgia tech to add more degrees to my degree belt and to expand my academic mind.</p>
-            </div>
-            <div>
-              <p>Feel free to direct message me on twitter or shoot me an <a href="mailto:ry@awhoof.com">email</a>. I'm open to freelancing, friendships, whatever.</p>
-            </div>
-            <div>
-              <p>So.. yeah.. everything is chill.
-                Here, have a <a href="http://static.awhoof.com/shooter/" target="_blank">gamez</a>. Shake your phone really hard to activate mobile-gawd-mode ;). Peace.
-              </p>
-            </div>
+            <p>Ah yes.. with that existential crisis out of the way, I thank you for dropping by my portal-thingy, <a href="https://github.com/ryanlinnane/supernova" target="_blank">supernova</a>.</p> 
+            <p>
+              I'm a software engineer <a href="https://fullstory.com" target="_blank">@FullStory</a> in Atlanta. 
+            </p>
+            <p>
+              I'm writing in TypeScript and GoLang these days (yeppers, one of the cool kids). To me, programming is the modern-day alchemy of turning "nothing" into something ✊🏻.
+                I love creating abstractions and knowing that at my fingertips, there's this potential to touch an insane number of people across worlds.
+            </p>
+            <p>So yeah, at this point, you probably want to my dream? You want to know, don't you? It's okay, we're at that level now. My dream within my heart of hearts, is to sparkle!!!</p>
+            <p>In my free time, I like working out, drinking caffee, trying new foods, lo-fi music, plain t-shirts, traveling, and peering into the soul of the universe.
+              Other than that, I moonlight a part-time master's through Georgia Tech to add more degrees to my degree belt and to expand my academic mind.</p>
+            <p>Feel free to direct message me on twitter or shoot me an <a href="mailto:ry@awhoof.com">email</a>. I'm open to freelancing, friendships, whatever.</p>
+            <p>So.. yeah.. everything is chill.
+              Here, have a <a href="http://static.awhoof.com/shooter/" target="_blank">gamez</a>. Shake your phone really hard to activate mobile-gawd-mode ;). Peace.
+            </p>
             <div style={{textAlign:'right'}}>
               -Legendary starfish tamer
             </div>
