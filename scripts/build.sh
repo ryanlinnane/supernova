@@ -2,4 +2,4 @@ echo 'build phase'
 git fetch origin
 git reset --hard origin/master
 npm install
-gulp deploy
+node_modules/gulp/bin/gulp.js deploy
