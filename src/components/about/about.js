@@ -42,7 +42,7 @@ export default class About extends Component {
               I'm a software engineer <a href="https://fullstory.com" target="_blank">@FullStory</a> in Atlanta. 
             </p>
             <p>
-              I'm writing in TypeScript and GoLang these days (yeppers, one of the cool kids). To me, programming is the modern-day alchemy of turning "nothing" into something ✊🏻.
+              I'm writing in TypeScript and Go these days (yeppers, one of the cool kids). To me, programming is the modern-day alchemy of turning "nothing" into something ✊🏻.
                 I love creating abstractions and knowing that at my fingertips, there's this potential to touch an insane number of people across worlds.
             </p>
             <p>So yeah, at this point, you probably want to my dream? You want to know, don't you? It's okay, we're at that level now. My dream within my heart of hearts, is to sparkle!!!</p>
