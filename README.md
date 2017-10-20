@@ -3,7 +3,6 @@ http://awhoof.com
 
 ![Alt Text](https://github.com/ryanlinnane/supernova/raw/master/src/public/images/example.gif)
 
-
 A custom react.js personal landing page.
 Includes:
 * responsive panel and drop-down.
