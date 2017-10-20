@@ -9,7 +9,6 @@ Includes:
 * picture modal popup and ability to rotate between images.
 * custom hash routing and back button support in browsers
 
-
 ##### Development:
 ```ShellSession
 $ cd supernova && npm install
