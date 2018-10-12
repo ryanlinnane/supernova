@@ -14,30 +14,27 @@ export default class Nav extends Component {
   }
   componentWillMount() {
     window.addEventListener('resize', this.handleResize)
-
   }
+
   componentWillUmount() {
     window.removeEventListener('resize', this.handleResize)
 
   }
   handleResize() {
-    if(mobileAndTabletcheck(window)) {
+    if (mobileAndTabletcheck(window)) {
       return
     }
-
     let orientationChange = false
     if(window.innerWidth >= 767 && this.state.innerWidth < 767 || window.innerWidth < 767 && this.state.innerWidth >= 767) {
       orientationChange = true
     }
-
     this.setState({
       innerWidth: window.innerWidth,
       orientationChange
     })
   }
+
   render() {
-
-
     let aboutStyle = {}
     if(this.state.innerWidth >= 767) {
       aboutStyle['transition'] = 'none'
@@ -82,18 +79,13 @@ export default class Nav extends Component {
         {/*left*/}
         {
           (() => {
-            // console.log('window ' + )
-            const routes = ['ABOUT', 'PHOTO', 'VIDEO', 'RESUME', 'MUSING']
+            const routes = ['ABOUT', 'PHOTO', 'VIDEO', 'RESUME']
             return routes.map((route, index) => {
               let style = {}
               if(route.toLowerCase() == this.props.routeID) {
                 style['backgroundColor'] = 'rgba(139, 254, 206, 0.7)'
               }
               return <div onTouchStart="" key={route} style={style} className={`${styles.leftSelector} ${styles.yShift}`} onClick={() => {
-                if(route.toLowerCase() == 'musing') {
-                  window.open('https://ryanlinnane.github.io', '__blank')
-                  return
-                }
                 this.props.onRouteClick(route)
               }}>
                 {route}

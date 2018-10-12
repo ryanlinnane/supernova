@@ -1,59 +1,60 @@
-/**
- * Created by MagicAntler on 10/14/15.
- */
 import React, { Component } from "react";
 import 'whatwg-fetch'
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { connect } from 'react-redux';
 import reducer from './reducers/index.js';
-import { render } from 'react-dom'
-
-import colorPulse from './lib/color'
+import reactDOM from 'react-dom'
 import Photo from './components/photo/photo'
 import Video from './components/video/video'
 import About from './components/about/about'
 import Resume from './components/resume/resume'
 import Nav from './components/nav/nav'
 import initAnalytics from './analytics'
-initAnalytics()
+initAnalytics();
 import styles from './app.scss';
 
 class Main extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      routeID: 'about',
+      routeID: 'about', // Default route ID.
       loadingIDs: []
     }
-    this.setRouteID = this.setRouteID.bind(this)
-    this.pushLoading = this.pushLoading.bind(this)
-    this.removeLoading = this.removeLoading.bind(this)
-    this.animateBG = this.animateBG.bind(this)
+    this.setRouteID = this.setRouteID.bind(this);
+    this.pushLoading = this.pushLoading.bind(this);
+    this.removeLoading = this.removeLoading.bind(this);
+    this.animateBG = this.animateBG.bind(this);
   }
+
   animateBG(backgroundPosition) {
     requestAnimationFrame(() => {
-      let bgPos = backgroundPosition + 0.3
+      let bgPos = backgroundPosition + 0.3;
       this.setState({
         backgroundPosition: bgPos
-      })
-      this.animateBG(bgPos)
+      });
+      this.animateBG(bgPos);
     })
   }
+
   pushLoading(id) {
     this.setState({
       loadingIDs: [...this.state.loadingIDs.slice(), id]
     })
   }
+
   removeLoading(id) {
     this.setState({
       loadingIDs: this.state.loadingIDs.filter(lID => lID != id)
-    })
+    });
   }
-  componentWillMount() { }
-  componentWillUpdate(nextProps, nextState) {
-  }
+
+  componentWillUnmount() { }
+
+  componentWillUpdate(nextProps, nextState) { }
+
   componentDidMount() {
+
     requestAnimationFrame(() => this.animateBG(0))
     if(window.location.hash) {
       const routeStartIndex = window.location.href.indexOf('/#/') + 3
@@ -69,6 +70,7 @@ class Main extends Component{
       }
     })
   }
+
   setRouteID(id) {
     this.setState({
       routeID: id.toLowerCase(),
@@ -76,7 +78,8 @@ class Main extends Component{
     })
     window.location.hash = '/' + id.toLowerCase()
   }
-  render(){
+
+  render() {
     let rightContentStyles = {
       backgroundImage:`url(${require('./public/images/star2.png')})`,
       backgroundPosition:`center ${this.state.backgroundPosition}px`
@@ -106,7 +109,7 @@ class Main extends Component{
                 case 'resume':
                   return <Resume removeLoading={this.removeLoading} pushLoading={this.pushLoading} />
                 default:
-                  return null
+                  return null;
               }
             })()
           }
@@ -128,6 +131,6 @@ const MainContainer =
   connect(mapStateToProps,
    mapDispatchToProps)(Main);
 
-render(<Provider store={createStore(reducer)}>
+reactDOM.render(<Provider store={createStore(reducer)}>
   <MainContainer />
 </Provider>, document.getElementById('root'));

@@ -6,17 +6,20 @@ const flickrRoute = 'https://api.flickr.com/services/rest/?method=flickr.people.
 import Scroll from '../scroll'
 
 export default class Photo extends Component {
+
   constructor(props) {
     super(props)
     this.state = {
       photoData: [],
       selectedImageIndex: null,
       selectedImageWidth: null
-    }
-    this.willUnmount = false
-    this.colorStep = this.colorStep.bind(this)
-    this.fetchPhotos = this.fetchPhotos.bind(this)
+    };
+    this.willUnmount = false;
+    this.colorStep = this.colorStep.bind(this);
+    this.fetchPhotos = this.fetchPhotos.bind(this);
+    performance.mark("Photo-Construct");
   }
+
   fetchPhotos() {
     this.props.pushLoading('gallery')
     fetch(flickrRoute).then(response => {
@@ -36,30 +39,39 @@ export default class Photo extends Component {
       this.props.removeLoading('gallery')
     })
   }
+
   componentWillMount() {
     this.fetchPhotos()
   }
+
   componentWillReceiveProps(prevProps, nextProps) { }
+
   componentWillUnmount() {
-    this.willUnmount = true
-    this.props.removeLoading('gallery')
+    this.willUnmount = true;
+    this.props.removeLoading('gallery');
+    performance.mark("Photo-Unmount");
+    performance.measure("Photo-Mount-Unmount", "Photo-Mount", "Photo-Unmount");
+    performance.measure("Photo-Construct-Mount", "Photo-Construct", "Photo-Mount");
   }
+
   componentDidMount() {
-    let colorGenerator = colorPulse([[0,0,0], [255,255,255],  [1, 167, 184], [34, 218, 212]])
-    this.colorStep(colorGenerator)
+    let colorGenerator = colorPulse([[0,0,0], [255,255,255],  [1, 167, 184], [34, 218, 212]]);
+    this.colorStep(colorGenerator);
+    performance.mark("Photo-Mount");
   }
+
   colorStep(colorGenerator) {
-    const { done, value } = colorGenerator.next()
+    const { done, value } = colorGenerator.next();
     if(done) {
-      throw new Error('generator stopped!')
+      throw new Error('generator stopped!');
     }
     if(this.willUnmount) {
-      return
+      return;
     }
     this.setState({
       color: value
-    })
-    requestAnimationFrame(() => this.colorStep(colorGenerator))
+    });
+    requestAnimationFrame(() => this.colorStep(colorGenerator));
   }
   getCell(data, key) {
     let cellStyle = key == this.state.hoveredID ? { backgroundColor:'rgb(240, 236, 236)' } : {}
@@ -74,9 +86,11 @@ export default class Photo extends Component {
       }} />
     </div>
   }
+
   getColorStyle(rgbVector = [0,0,0]) {
     return { boxShadow: `5px 5px 5px rgb(${rgbVector.join(',')})` }
   }
+  
   render() {
     return <div className={styles.gallery} ref={(ref) => this.container = ref}>
     <Modal selectedImage={this.state.photoData[this.state.selectedImageIndex]} defaultWidth={this.state.selectedImageWidth}
