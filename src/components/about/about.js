@@ -38,7 +38,7 @@ export default class About extends Component {
             <p>With that existential crisis out of the way, I welcome you.</p>
             <p>
               To me, programming is the modern-day alchemy of turning "nothing" into something ✊🏻.
-              I love creating abstractions and how at my fingertips, there's this potential to touch an insane number of people across worlds. That's the dream. Just not sure how this will manifest yet :).
+              I love creating abstractions and how at my fingertips, there's this potential to touch an insane number of people across worlds. That's the dream.
             </p>
             <p>I've got a B.S. in Math and Computer Science from UGA and an M.S. in Machine Learning from the Georgia Institute of Technology.</p>
             <p>Beyond programming, I love experiencing new cultures, calisthenics, and trying new foods. Also I really dig scenic landscapes and cities.</p>
