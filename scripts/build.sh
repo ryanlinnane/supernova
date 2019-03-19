@@ -6,4 +6,4 @@ npm install
 echo 'copying with gulp...'
 node_modules/gulp/bin/gulp.js deploy
 echo 'restarting landing'
-sudo systemctl restart landing
+sudo systemctl restart supernova
