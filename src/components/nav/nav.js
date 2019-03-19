@@ -79,7 +79,8 @@ export default class Nav extends Component {
         {/*left*/}
         {
           (() => {
-            const routes = ['ABOUT', 'PHOTO', 'VIDEO', 'RESUME']
+            // , 'RESUME'
+            const routes = ['ABOUT', 'PHOTO', 'VIDEO']
             return routes.map((route, index) => {
               let style = {}
               if (route.toLowerCase() == this.props.routeID) {
@@ -95,10 +96,10 @@ export default class Nav extends Component {
         }
     </div>
     <div style={{display:'flex', alignItems:'center', justifyContent:'space-around', maxWidth:'100%', minWidth:'210px', padding:'2px 0px'}}>
-      <a href='https://github.com/ryanlinnane' target='__blank' className={`${styles.icon}`}> <img src={require('./icons/github.png')}/></a>
+      {/* <a href='https://github.com/ryanlinnane' target='__blank' className={`${styles.icon}`}> <img src={require('./icons/github.png')}/></a>
       <a href='https://www.linkedin.com/in/linnaneryan' target='__blank' className={styles.icon}> <img src={require('./icons/linkedin.png')}/></a>
       <a href='https://medium.com/@Leef' target='__blank' className={styles.icon}> <img src={require('./icons/medium.png')}/></a>
-      <a href='https://twitter.com/whoofshowl' target='__blank' className={styles.icon}> <img src={require('./icons/twitter.png')}/></a>
+      <a href='https://twitter.com/whoofshowl' target='__blank' className={styles.icon}> <img src={require('./icons/twitter.png')}/></a> */}
     </div></div>)
   }
 }
